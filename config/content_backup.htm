@@ -23,7 +23,139 @@
 <p><span style="background-color: #ccffcc;">SStatic</span> - Start Static Site - 利用 Python 啟動網站伺服功能, 可以讓使用者檢查轉檔後的靜態網站內容.</p>
 <p><span style="background-color: #ccffcc;">RStatic</span> - Replit Static Site URL - 僅用於 Replit 模式, 當使用者按下 SStatic 後, 可以按下 RStatic 進入當下尚未推向 Github Pages 的靜態網站.</p>
 <p><span style="background-color: #ccffcc;">80</span> - 由 init.py 中 static_port 所決定的連結字串, 一般不使用 80, 只有在 Replit 中為了與動態網站共用 port, 才特別設為 80.</p>
-<p></p>
+<h1>作業</h1>
+<h2>W2</h2>
+<p>1.確認所有學員已經建立帳號:<span>帶有以 Python 編寫的動態網站程式, 以及位於 content 目錄中的靜態網頁資料.</span></p>
+<p>2.<span>確認學員會用replit維護網站:Replit 檢視動態網站或網誌推送到 Github 之前的內容, 必須要在動態與靜態模式中擇一使用</span></p>
+<p><span>3.如何利用Codespaces維護網站:Codespaces 中維護 wcm2024 的過程幾乎如同在 localhost Windows 10 或 11 的操作系統環境中進行</span></p>
+<h2>W3</h2>
+<h2>W4</h2>
+<p>有關建立網站:<span>網站指的是 Web site針對網頁瀏覽器檢視的內容加以管理，利用 Github 所提供的 Pages 功能來建立網頁進行管理。</span></p>
+<p><span>Replit靜態網站檢視:若要執行動態網站，可以在 Shell 執行 python3 main.py 或者使用 Replit 的 Run 按鍵， Shell 執行 python3 main2.py 就可以執行倉儲內的靜態網站檢視。</span></p>
+<p><span>Replit建立分組倉儲權限:</span></p>
+<p>分組網站 import 到 Replit, 必須自行在 /home/runner/.ssh 目錄下建立 id_rsa 與 config (id_rsa.pub 必須登錄到 Github 對應帳號), 其中的 config 內容為:</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">Host github.com
+User git
+Hostname github.com</pre>
+<p><span>ssh.py 程式內容如下:</span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">import os
+if not os.path.exists("/home/runner/.ssh"): 
+    os.makedirs("/home/runner/.ssh") 
+os.system("mv ./downloads/id_rsa.txt /home/runner/.ssh/id_rsa")
+os.system("mv ./downloads/config.txt /home/runner/.ssh/config")
+os.system("chmod og-rwx /home/runner/.ssh/id_rsa")
+</pre>
+<h2>W5</h2>
+<p>以 iframe 嵌入先前的教學影片做課前預習</p>
+<p>1.在Replit 平台上的分組倉儲權限設定</p>
+<p>2.Putty Solvespace STL 零件檢視方法</p>
+<p>3.大規模人工智慧運算的時代：前景、影響及回應</p><h2>W6</h2>
+<p><span><span class="ui-provider rn uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd" dir="ltr">1.git 的發展歷史:</span></span><span><span class="ui-provider rn uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd" dir="ltr">世界上最流行的版本控制系统之一。</span></span></p>
+<p>   git創作人相關履歷:是一位計算機學者，為現代軟體開發有重要的基礎。</p>
+<p><span><span class="ui-provider rn uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd" dir="ltr">   一般相同專業人士如何利用git解決內容管理問題?:git可以追蹤檔案變化，可以多人對同一個專案進行工作，允許使用者創建分支，透過提交功能可以記錄每次對檔案的修改，git倉庫可以和遠端伺服器上進行備分，提供PR機制，允許成員對程式碼進行審查。</span></span></p>
+<p><span><span class="ui-provider rn uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd" dir="ltr">2.假如要在 Windows 實際 demo git client 與 git server, 該如何進行?</span></span></p>
+<p><strong> 選擇Git服務器：</strong> 可以選 GitLab、GitHub 。</p>
+<p><strong>安裝 Git 伺服器軟體：</strong><span> </span>根據您選擇的 Git 伺服器軟體，按照其官方文件或指南進行安裝。這些軟體通常提供 Windows 版本的安裝程式，您可以下載並按照步驟進行安裝。</p>
+<p><strong>配置 Git 伺服器：</strong><span> </span>安裝完成後，根據您的需求配置 Git 伺服器。</p>
+<p><strong>啟動 Git 伺服器服務：</strong><span> </span>安裝完成後，啟動 Git 伺服器服務，確保其能夠正常運行。</p>
+<p><strong>安裝 Git 客戶端：</strong><span> </span>在 Windows 上安裝 Git 客戶端。您可以從 Git 官方網站下載 Git for Windows </p>
+<p><strong>配置 Git 客戶端：</strong><span> </span>安裝完成後，在命令行或圖形用戶界面中配置 Git 客戶端的使用者信息，包括使用者名稱和郵箱地址，以便提交程式碼時記錄作者信息。</p>
+<ol>
+<li>
+<div class="flex-1 overflow-hidden">
+<div class="react-scroll-to-bottom--css-enhmt-79elbk h-full">
+<div class="react-scroll-to-bottom--css-enhmt-1n7m0yu">
+<div class="flex flex-col text-sm pb-9">
+<div class="w-full text-token-text-primary" data-testid="conversation-turn-15">
+<div class="px-4 py-2 justify-center text-base md:gap-6 m-auto">
+<div class="flex flex-1 text-base mx-auto gap-3 md:px-5 lg:px-1 xl:px-5 md:max-w-3xl lg:max-w-[40rem] xl:max-w-[48rem] group final-completion">
+<div class="relative flex w-full flex-col agent-turn">
+<div class="flex-col gap-1 md:gap-3">
+<div class="flex flex-grow flex-col max-w-full">
+<div class="min-h-[20px] text-message flex flex-col items-start gap-3 whitespace-pre-wrap break-words [.text-message+&amp;]:mt-5 overflow-x-auto" data-message-author-role="assistant" data-message-id="4e271a99-f50f-4da7-96eb-9a3994631cda">
+<div class="markdown prose w-full break-words dark:prose-invert light">
+<ol>
+<li>
+<p><strong>Git clone 倉庫：</strong><span> </span>使用 Git 客戶端從 Git 伺服器上clone倉庫到本地電腦。您可以使用命令行或圖形用戶界面執行clone操作。例如，在命令行中執行<span> </span><code>git clone &lt;Git伺服器地址&gt;</code><span> </span>即可將倉庫克隆到本地。</p>
+</li>
+</ol>
+<p><strong>演示 Git 操作：</strong></p>
+<ol>
+<li>
+<p><strong>添加檔案和提交變更：</strong><span> </span>在本地克隆的倉庫中添加檔案、修改檔案，並使用 Git 客戶端提交這些變更到本地倉庫。</p>
+</li>
+<li>
+<p><strong>推送變更到 Git 伺服器：</strong><span> </span>使用 Git 客戶端將本地倉庫中的變更推送到 Git 伺服器。您可以使用命令行或圖形用戶界面執行推送操作。</p>
+</li>
+<li>
+<p><strong>拉取最新變更：</strong><span> </span>使用 Git 客戶端從 Git 伺服器中拉取最新的變更到本地倉庫，以確保本地倉庫與伺服器保持同步。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ol><h2>W7</h2>
+<h2>W8</h2>
+<div class="gizmo-shadow-stroke flex h-6 w-6 items-center justify-center overflow-hidden rounded-full">1.教育的本質看課程內容:<span>培養對</span><strong>學習的渴望</strong><span>和</span><strong>對世界的好奇心，</strong><span>培養對</span><strong>學習的渴望</strong><span>和</span><strong>對世界的好奇心。</strong></div>
+<div class="gizmo-shadow-stroke flex h-6 w-6 items-center justify-center overflow-hidden rounded-full">
+<p dir="auto">廣泛的學習經驗：鼓勵學生<strong>探索不同科目和學科的廣泛教育的重要性</strong>。應該<strong>促進智識好奇心</strong>和<strong>批判性思維</strong>。</p>
+<p dir="auto">2.如何將影片嵌入網頁:上傳影片到youtube上，之後到自己的youtube影片下，點<span>分享</span>選擇第一個，把右側<span>超連結程式</span>碼複製，編輯網站，點Source code<span>，</span>把內容複製貼上。</p>
+</div><h2>W11</h2>
+<p>Brython程式環境:</p>
+<p>頁面 demo 在同一頁面下入多個線上 Ace 編輯器與執行按鈕 (<a href="https://zhe41223118.github.io/wcm2024/downloads/practice_html.txt">practice_html.txt</a><span> </span>動態頁面超文件).</p>
+<p><a href="https://zhe41223118.github.io/wcm2024/downloads/practice_html.txt">practice_html.txt</a><span> </span>動態頁面超文件應該可以在啟動 Brython 時, 設定將 .py 檔案放入 downloads/py 目錄中引用.</p>
+<p>亦即將所有對應的 html 也使用 Brython 產生, 然後寫為<span> </span><a href="https://docs.python.org/3/tutorial/classes.html">class</a><span> </span>後, 在範例導入時透過<span> </span><a href="https://docs.python.org/3/tutorial/classes.html#instance-objects">instance</a><span> </span>引用</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">&lt;!-- 啟動 Brython --&gt;
+&lt;script&gt;
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+&lt;/script&gt;</pre>
+<p>從 1 累加到 100:</p>
+<p><button id="add1to100">1 add to 100</button></p>
+<p>將 iterable 與 iterator<span> </span><a href="https://home.gamer.com.tw/creationDetail.php?sn=4337438">相關說明</a>, 利用 Brython 與 Ace Editor 整理在這個頁面.</p>
+<div class="ace_editor ace-tm" id="kw_editor1"><textarea autocapitalize="off" autocorrect="off" class="ace_text-input" spellcheck="false" wrap="off"></textarea>
+<div aria-hidden="true" class="ace_gutter">
+<div class="ace_layer ace_gutter-layer ace_folding-enabled">
+<div class="ace_gutter-cell">1</div>
+<div class="ace_gutter-cell">2</div>
+</div>
+<div class="ace_gutter-active-line"><span class="ace_support ace_function">sum</span><span> </span><span class="ace_keyword ace_operator">=</span><span> </span><span class="ace_constant ace_numeric">1</span><span class="ace_keyword ace_operator">+</span><span class="ace_constant ace_numeric">2</span><span class="ace_keyword ace_operator">+</span><span class="ace_constant ace_numeric">3</span><span class="ace_keyword ace_operator">+</span><span class="ace_constant ace_numeric">4</span><span class="ace_keyword ace_operator">+</span><span class="ace_constant ace_numeric">5</span><span class="ace_keyword ace_operator">+</span><span class="ace_constant ace_numeric">6</span><span class="ace_keyword ace_operator">+</span><span class="ace_constant ace_numeric">7</span><span class="ace_keyword ace_operator">+</span><span class="ace_constant ace_numeric">8</span><span class="ace_keyword ace_operator">+</span><span class="ace_constant ace_numeric">9</span><span class="ace_keyword ace_operator">+</span><span class="ace_constant ace_numeric">10</span></div>
+</div>
+<div class="ace_scroller">
+<div class="ace_content">
+<div class="ace_layer ace_text-layer">
+<div class="ace_line"><span class="ace_support ace_function">print</span><span class="ace_paren ace_lparen">(</span><span class="ace_support ace_function">sum</span><span class="ace_paren ace_rparen">)</span></div>
+</div>
+<div class="ace_layer ace_marker-layer"></div>
+<div class="ace_layer ace_cursor-layer ace_hidden-cursors">
+<div class="ace_cursor"><label>Filename:<span> </span><input id="kw_filename" placeholder="input file name" type="text"/>.py</label><span> </span><input type="submit" value="Save"/></div>
+</div>
+</div>
+</div>
+</div>
+<p><button id="kw_show_console1">Run  Output</button><span> </span><button id="kw_clear_console1">清除輸出區</button><button id="clear_bd1">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<div>
+<div class="ace_editor ace-tm" id="kw_editor1"><textarea autocapitalize="off" autocorrect="off" class="ace_text-input" spellcheck="false" wrap="off"></textarea>
+<div aria-hidden="true" class="ace_gutter">
+<div class="ace_layer ace_gutter-layer ace_folding-enabled">
+<div class="ace_gutter-cell"></div>
+</div>
+</div>
+</div>
+</div><h2>W13</h2>
+<p><span></span></p>
+<p><span></span></p>
 <h1>Replit</h1>
 <p><a href="https://replit.com">https://replit.com</a></p>
 <p>利用 init_replit 指令安裝所需 Python 模組<br/><br/>chmod u+x init_replit<br/><br/>./init_replit</p>
@@ -434,8 +566,41 @@
 <span></span></li>
 </ol>
 <p>7.wcm2024 課程中曾經提到可以利用舊的可攜 Python 程式環境建立新的 Python 可攜程式環境, 但該如何進行?</p>
+<ol>
+<li>
+<p>獲取舊的可攜式 Python 程式環境：如果你已經擁有一個可攜式 Python 環境，你可以使用該環境作為模板來創建新的虛擬環境。你可以從你的舊環境目錄中複製所有文件和文件夾，並將其用作新的虛擬環境的起點。</p>
+</li>
+<li>
+<p>創建新的虛擬環境：在新的目錄中，打開命令提示符或終端機，並運行以下命令來創建新的虛擬環境</p>
+</li>
+<li><span>啟動虛擬環境：在命令提示符或終端機中，運行以下命令來啟動新的虛擬環境</span></li>
+<li>
+<p>安裝所需的套件：一旦虛擬環境啟動，你可以使用 <code>pip</code> 命令來安裝任何你需要的 Python 套件，就像在普通的 Python 環境中一樣。</p>
+</li>
+<li><span></span></li>
+</ol>
 <p>8.假如希望直接在網頁中利用 Brython 建立一個掃地機器人的工作模擬系統, 該如何進行?</p>
-<p>9.wcm2024 課程除了可以使用<span> </span><a href="https://chat.openai.com/">ChatGPT</a><span> </span>外, 還能夠使用 Google<span> </span><a href="https://developers.googleblog.com/2024/04/gemini-15-pro-in-public-preview-with-new-features.html">Gemini Pro</a>, 請試著在解決上列問題時, 善用這兩個系統, 並將使用過程與心得整理在個人的課程網頁與網誌中.</p><h1>作業</h1>
+<ol>
+<li>
+<p><strong>準備 HTML 文件</strong>：首先，創建一個 HTML 文件，其中包含掃地機器人模擬的介面和必要的元素。這個 HTML 文件將包含一個畫布（canvas）元素，用於顯示掃地機器人的運動軌跡和清理效果。</p>
+</li>
+<li>
+<p><strong>引入 Brython</strong>：在 HTML 文件中引入 Brython 的 JavaScript 文件，以便在網頁中運行 Python 代碼。</p>
+</li>
+<li>
+<p><strong>編寫 Brython 代碼</strong>：在 HTML 文件中編寫 Brython 代碼，來模擬掃地機器人的行為。這些代碼將控制掃地機器人在畫布上移動，以及清理地面的過程。</p>
+</li>
+<li>
+<p><strong>設計掃地機器人模擬介面</strong>：設計一個用於控制掃地機器人模擬的網頁界面，例如按鈕或滑塊，用戶可以通過這些界面來控制機器人的行動。</p>
+</li>
+</ol>
+<p>9.wcm2024 課程除了可以使用<span> </span><a href="https://chat.openai.com/">ChatGPT</a><span> </span>外, 還能夠使用 Google<span> </span><a href="https://developers.googleblog.com/2024/04/gemini-15-pro-in-public-preview-with-new-features.html">Gemini Pro</a>, 請試著在解決上列問題時, 善用這兩個系統, 並將使用過程與心得整理在個人的課程網頁與網誌中.</p>
+<p>當我們面對掃地機器人的工作模擬系統問題時，利用 ChatGPT 和 Google Gemini Pro 可以帶來不同的優勢和體驗。</p>
+<p>ChatGPT 作為一個語言模型，可以幫助我們理解問題的本質，提供技術方面的解釋和建議。例如，在構建掃地機器人模擬系統時，我們可以向 ChatGPT 提問有關 Python、Brython、HTML 和網頁程式設計的問題，並獲得相應的指導和建議。</p>
+<p>另一方面，Google Gemini Pro 是一個強大的工具，可以幫助我們搜尋和查找技術文檔、教程和示例代碼。使用 Google Gemini Pro，我們可以快速找到有關 Brython 的官方文檔、線上教程和範例代碼，這些資源對於我們理解 Brython 的使用方式和建立掃地機器人模擬系統非常有幫助。</p>
+<p>在解決問題的過程中，我們可以先向 ChatGPT 提問，獲得基本的理解和指導，然後利用 Google Gemini Pro 進一步查找相關資源和詳細教程。通過這樣的方式，我們可以充分利用這兩個系統的優勢，更有效地解決問題並學習相關技術。</p>
+<p>將這個過程和心得整理在個人的課程網頁與網誌中，可以幫助我們記錄自己的學習過程和心得體會，同時也可以與他人分享這個寶貴的學習經驗，激勵和幫助更多人一起成長和進步。</p>
+<h1>作業</h1>
 <h2>W6</h2>
 <p>1.</p>
 <p><strong>git 的發展歷史</strong></p>
