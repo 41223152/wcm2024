@@ -2,7 +2,7 @@
         <head>
         <title>cmsimde_site</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -142,13 +142,41 @@ img.add_border {
           </div>
 
         </header>
-    <div id="tipue_search_content">W6 << <a href='W6.html'>Previous</a> <a href='W11.html'>Next</a> >> W11<br /><h1>W8</h1>
-<div class="gizmo-shadow-stroke flex h-6 w-6 items-center justify-center overflow-hidden rounded-full">1.教育的本質看課程內容:<span>培養對</span><strong>學習的渴望</strong><span>和</span><strong>對世界的好奇心，</strong><span>培養對</span><strong>學習的渴望</strong><span>和</span><strong>對世界的好奇心。</strong></div>
-<div class="gizmo-shadow-stroke flex h-6 w-6 items-center justify-center overflow-hidden rounded-full">
-<p dir="auto">廣泛的學習經驗：鼓勵學生<strong>探索不同科目和學科的廣泛教育的重要性</strong>。應該<strong>促進智識好奇心</strong>和<strong>批判性思維</strong>。</p>
-<p dir="auto">2.如何將影片嵌入網頁:上傳影片到youtube上，之後到自己的youtube影片下，點<span>分享</span>選擇第一個，把右側<span>超連結程式</span>碼複製，編輯網站，點Source code<span>，</span>把內容複製貼上。</p>
-</div>
-<br />W6 << <a href='W6.html'>Previous</a> <a href='W11.html'>Next</a> >> W11</div>
+    <div id="tipue_search_content">5. 主遊戲循環 << <a href='5. 主遊戲循環.html'>Previous</a> <a href='作業.html'>Next</a> >> 作業<br /><h1>程式解釋</h1>
+<ol>
+<li>
+<p><strong>初始化遊戲板</strong>：</p>
+<ul>
+<li>使用<code>numpy</code>創建一個 6 行 7 列的矩陣，初始值全為 0。</li>
+</ul>
+</li>
+<li>
+<p><strong>顯示遊戲板</strong>：</p>
+<ul>
+<li><code>print_board</code>函數顯示遊戲板，使用<code>np.flip</code>來翻轉矩陣，因為放置棋子時是從底部開始的。</li>
+</ul>
+</li>
+<li>
+<p><strong>放置棋子</strong>：</p>
+<ul>
+<li><code>is_valid_location</code>函數檢查某列是否可以放置棋子。</li>
+<li><code>get_next_open_row</code>函數返回該列中可以放置棋子的行號。</li>
+<li><code>drop_piece</code>函數在指定位置放置棋子。</li>
+</ul>
+</li>
+<li>
+<p><strong>檢查勝利條件</strong>：</p>
+<ul>
+<li><code>winning_move</code>函數檢查是否有玩家在橫向、縱向或對角線上連成四子。</li>
+</ul>
+</li>
+<li>
+<p><strong>主遊戲循環</strong>：</p>
+<ul>
+<li>玩家交替進行操作，輸入要放置棋子的列號，並檢查是否獲勝。</li>
+</ul>
+</li>
+</ol><br />5. 主遊戲循環 << <a href='5. 主遊戲循環.html'>Previous</a> <a href='作業.html'>Next</a> >> 作業</div>
 
     <!-- footer -->
       <div class="container">

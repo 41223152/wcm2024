@@ -2,7 +2,7 @@
         <head>
         <title>cmsimde_site</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -142,13 +142,95 @@ img.add_border {
           </div>
 
         </header>
-    <div id="tipue_search_content">W6 << <a href='W6.html'>Previous</a> <a href='W11.html'>Next</a> >> W11<br /><h1>W8</h1>
-<div class="gizmo-shadow-stroke flex h-6 w-6 items-center justify-center overflow-hidden rounded-full">1.教育的本質看課程內容:<span>培養對</span><strong>學習的渴望</strong><span>和</span><strong>對世界的好奇心，</strong><span>培養對</span><strong>學習的渴望</strong><span>和</span><strong>對世界的好奇心。</strong></div>
-<div class="gizmo-shadow-stroke flex h-6 w-6 items-center justify-center overflow-hidden rounded-full">
-<p dir="auto">廣泛的學習經驗：鼓勵學生<strong>探索不同科目和學科的廣泛教育的重要性</strong>。應該<strong>促進智識好奇心</strong>和<strong>批判性思維</strong>。</p>
-<p dir="auto">2.如何將影片嵌入網頁:上傳影片到youtube上，之後到自己的youtube影片下，點<span>分享</span>選擇第一個，把右側<span>超連結程式</span>碼複製，編輯網站，點Source code<span>，</span>把內容複製貼上。</p>
-</div>
-<br />W6 << <a href='W6.html'>Previous</a> <a href='W11.html'>Next</a> >> W11</div>
+    <div id="tipue_search_content">4. 檢查勝利條件 << <a href='4. 檢查勝利條件.html'>Previous</a> <a href='程式解釋.html'>Next</a> >> 程式解釋<br /><h1>5. 主遊戲循環</h1>
+<p>我們需要一個循環來讓玩家輪流放置棋子並檢查勝利條件。</p>
+<p>下面是完整的四子棋遊戲程式：</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">import numpy as np
+
+# 定義遊戲板大小
+ROW_COUNT = 6
+COLUMN_COUNT = 7
+
+def create_board():
+    board = np.zeros((ROW_COUNT, COLUMN_COUNT))
+    return board
+
+def print_board(board):
+    print(np.flip(board, 0))
+
+def is_valid_location(board, col):
+    return board[ROW_COUNT-1][col] == 0
+
+def get_next_open_row(board, col):
+    for r in range(ROW_COUNT):
+        if board[r][col] == 0:
+            return r
+
+def drop_piece(board, row, col, piece):
+    board[row][col] = piece
+
+def winning_move(board, piece):
+    # 檢查所有橫向的勝利條件
+    for c in range(COLUMN_COUNT-3):
+        for r in range(ROW_COUNT):
+            if board[r][c] == piece and board[r][c+1] == piece and board[r][c+2] == piece and board[r][c+3] == piece:
+                return True
+
+    # 檢查所有縱向的勝利條件
+    for c in range(COLUMN_COUNT):
+        for r in range(ROW_COUNT-3):
+            if board[r][c] == piece and board[r+1][c] == piece and board[r+2][c] == piece and board[r+3][c] == piece:
+                return True
+
+    # 檢查所有正對角線的勝利條件
+    for c in range(COLUMN_COUNT-3):
+        for r in range(ROW_COUNT-3):
+            if board[r][c] == piece and board[r+1][c+1] == piece and board[r+2][c+2] == piece and board[r+3][c+3] == piece:
+                return True
+
+    # 檢查所有反對角線的勝利條件
+    for c in range(COLUMN_COUNT-3):
+        for r in range(3, ROW_COUNT):
+            if board[r][c] == piece and board[r-1][c+1] == piece and board[r-2][c+2] == piece and board[r-3][c+3] == piece:
+                return True
+
+board = create_board()
+game_over = False
+turn = 0
+
+print_board(board)
+
+while not game_over:
+    # 輪到玩家 1
+    if turn == 0:
+        col = int(input("Player 1 Make your Selection (0-6):"))
+
+        if is_valid_location(board, col):
+            row = get_next_open_row(board, col)
+            drop_piece(board, row, col, 1)
+
+            if winning_move(board, 1):
+                print("PLAYER 1 WINS!!")
+                game_over = True
+
+    # 輪到玩家 2
+    else: 
+        col = int(input("Player 2 Make your Selection (0-6):"))
+
+        if is_valid_location(board, col):
+            row = get_next_open_row(board, col)
+            drop_piece(board, row, col, 2)
+
+            if winning_move(board, 2):
+                print("PLAYER 2 WINS!!")
+                game_over = True
+
+    print_board(board)
+
+    turn += 1
+    turn = turn % 2
+</pre>
+<br />4. 檢查勝利條件 << <a href='4. 檢查勝利條件.html'>Previous</a> <a href='程式解釋.html'>Next</a> >> 程式解釋</div>
 
     <!-- footer -->
       <div class="container">
