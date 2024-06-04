@@ -1,189 +1,507 @@
-<h1>About</h1>
-<p>網頁:<a href="https://41223152.github.io/wcm2024/">https://41223152.github.io/wcm2024/</a></p>
-<p>網誌: <a href="https://41223152.github.io/wcm2024/blog/">https://41223152.github.io/wcm2024/blog/</a></p>
-<p>簡報: <a href="https://41223152.github.io/wcm2024/reveal/">https://41223152.github.io/wcm2024/reveal/</a></p>
-<p>倉儲: <a href="https://github.com/41223152/wcm2024">https://github.com/41223152/wcm2024</a></p>
-<p>本 cmsimde 網際內容管理系統的對應 Template 倉儲:</p>
-<p style="padding-left: 30px;"><a href="https://github.com/mdecycu/cmsimde_site">https://github.com/mdecycu/cmsimde_site</a></p>
-<p style="padding-left: 30px;">此 Template 將 cmsimde 作為子目錄而非子模組, 使用者可以依照需求自行修改</p>
-<p style="padding-left: 30px;">倉儲對應網站: <a href="https://mde.tw/cmsimde_site">https://mde.tw/cmsimde_site</a></p>
-<h1>cmsimde</h1>
-<p><span style="background-color: #ccffcc;">SMap</span> - SiteMap - 依照階次列出網站的所有頁面.</p>
-<p><span style="background-color: #ccffcc;">EditA</span> - Edit All page - 將所有頁面放入編輯模式中, 主要用來處理頁面搬遷, 刪除或決定衝突頁面內容版本.</p>
-<p><span style="background-color: #ccffcc;">Edit</span> - Edit page - 先選擇要編輯的單一頁面後, 再點選 Edit, 即可進入單一頁面的編輯模式.</p>
-<p><span style="background-color: #ccffcc;">Config</span> - Configure Site - 編輯頁面標題與管理者密碼.</p>
-<p><span style="background-color: #ccffcc;">Search</span> - 動態頁面內容的關鍵字搜尋.</p>
-<p><span style="background-color: #ccffcc;">IUpload</span> - Image file Upload - 圖檔的上傳功能, 可以上傳 jpg, png 與 gif 檔案, 其中若在手機上傳圖檔, 系統會自動將圖片檔案縮小為 800x800 大小.</p>
-<p><span style="background-color: #ccffcc;">IList</span> - Image file List - 列出可以直接在頁面編輯模式中引用的圖片檔案.</p>
-<p><span style="background-color: #ccffcc;">FUpload</span> - File Upload - 一般檔案的上傳功能, 目前可以上傳的檔案副檔名包括 'jpg', 'png', 'gif', '7z', 'pdf', 'zip', 'ttt', 'stl', 'txt', 'html', 'mp4' 等, 使用者可以自行修改.</p>
-<p><span style="background-color: #ccffcc;">FList</span> - File List - 列出可以直接在頁面編輯模式中引用的上傳檔案.</p>
-<p><span style="background-color: #ccffcc;">Logout</span> - 登出頁面編輯模式.</p>
-<p><span style="background-color: #ccffcc;">Convert</span> - 將動態網站中位於 config/content.htm 檔案, 透過分頁設定轉為 content 目錄中的靜態網頁.</p>
-<p><span style="background-color: #ccffcc;">acp</span> - git add, git commit 與 git push, 通常只有在 localhost 或自架主機上利用網頁表單協助將倉儲改版內容推向 Github 倉儲.</p>
-<p><span style="background-color: #ccffcc;">SStatic</span> - Start Static Site - 利用 Python 啟動網站伺服功能, 可以讓使用者檢查轉檔後的靜態網站內容.</p>
-<p><span style="background-color: #ccffcc;">RStatic</span> - Replit Static Site URL - 僅用於 Replit 模式, 當使用者按下 SStatic 後, 可以按下 RStatic 進入當下尚未推向 Github Pages 的靜態網站.</p>
-<p><span style="background-color: #ccffcc;">80</span> - 由 init.py 中 static_port 所決定的連結字串, 一般不使用 80, 只有在 Replit 中為了與動態網站共用 port, 才特別設為 80.</p>
-<h1>專案</h1>
-<h3>1. 初始化遊戲板</h3>
-<p>首先，我們需要定義遊戲板的大小並初始化它。</p>
-<h3>2. 顯示遊戲板</h3>
-<p>我們需要一個函數來打印遊戲板。</p>
-<h3>3. 放置棋子</h3>
-<p>我們需要一個函數來允許玩家在某一列放置棋子。</p>
-<h3>4. 檢查勝利條件</h3>
-<p>我們需要一個函數來檢查是否有玩家獲勝。</p>
-<h3>5. 主遊戲循環</h3>
-<p>我們需要一個循環來讓玩家輪流放置棋子並檢查勝利條件。</p>
-<p>下面是完整的四子棋遊戲程式：</p>
-<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">import numpy as np
-
-# 定義遊戲板大小
-ROW_COUNT = 6
-COLUMN_COUNT = 7
-
-def create_board():
-    board = np.zeros((ROW_COUNT, COLUMN_COUNT))
-    return board
-
-def print_board(board):
-    print(np.flip(board, 0))
-
-def is_valid_location(board, col):
-    return board[ROW_COUNT-1][col] == 0
-
-def get_next_open_row(board, col):
-    for r in range(ROW_COUNT):
-        if board[r][col] == 0:
-            return r
-
-def drop_piece(board, row, col, piece):
-    board[row][col] = piece
-
-def winning_move(board, piece):
-    # 檢查所有橫向的勝利條件
-    for c in range(COLUMN_COUNT-3):
-        for r in range(ROW_COUNT):
-            if board[r][c] == piece and board[r][c+1] == piece and board[r][c+2] == piece and board[r][c+3] == piece:
-                return True
-
-    # 檢查所有縱向的勝利條件
-    for c in range(COLUMN_COUNT):
-        for r in range(ROW_COUNT-3):
-            if board[r][c] == piece and board[r+1][c] == piece and board[r+2][c] == piece and board[r+3][c] == piece:
-                return True
-
-    # 檢查所有正對角線的勝利條件
-    for c in range(COLUMN_COUNT-3):
-        for r in range(ROW_COUNT-3):
-            if board[r][c] == piece and board[r+1][c+1] == piece and board[r+2][c+2] == piece and board[r+3][c+3] == piece:
-                return True
-
-    # 檢查所有反對角線的勝利條件
-    for c in range(COLUMN_COUNT-3):
-        for r in range(3, ROW_COUNT):
-            if board[r][c] == piece and board[r-1][c+1] == piece and board[r-2][c+2] == piece and board[r-3][c+3] == piece:
-                return True
-
-board = create_board()
-game_over = False
-turn = 0
-
-print_board(board)
-
-while not game_over:
-    # 輪到玩家 1
-    if turn == 0:
-        col = int(input("Player 1 Make your Selection (0-6):"))
-
-        if is_valid_location(board, col):
-            row = get_next_open_row(board, col)
-            drop_piece(board, row, col, 1)
-
-            if winning_move(board, 1):
-                print("PLAYER 1 WINS!!")
-                game_over = True
-
-    # 輪到玩家 2
-    else: 
-        col = int(input("Player 2 Make your Selection (0-6):"))
-
-        if is_valid_location(board, col):
-            row = get_next_open_row(board, col)
-            drop_piece(board, row, col, 2)
-
-            if winning_move(board, 2):
-                print("PLAYER 2 WINS!!")
-                game_over = True
-
-    print_board(board)
-
-    turn += 1
-    turn = turn % 2
+<h1>關於</h1>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">網頁：</span></span></span></span></span></span></span></span></span></span></span></span><a href="https://41223152.github.io/wcm2024/"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">https://41223152.github.io/wcm2024/</span></span></span></span></span></span></span></span></span></span></span></span></a></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">網誌：  </span></span></span></span></span></span></span></span></span></span></span></span><a href="https://41223152.github.io/wcm2024/blog/"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">https://41223152.github.io/wcm2024/blog/</span></span></span></span></span></span></span></span></span></span></span></span></a></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">簡報：  </span></span></span></span></span></span></span></span></span></span></span></span><a href="https://41223152.github.io/wcm2024/reveal/"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">https://41223152.github.io/wcm2024/reveal/</span></span></span></span></span></span></span></span></span></span></span></span></a></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">以太坊：  </span></span></span></span></span></span></span></span></span></span></span></span><a href="https://github.com/41223152/wcm2024"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">https://github.com/41223152/wcm2024</span></span></span></span></span></span></span></span></span></span></span></span></a></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">本cmsimde互聯網內容管理系統的範本應答：</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p style="padding-left: 30px;"><a href="https://github.com/mdecycu/cmsimde_site"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">https://github.com/mdecycu/cmsimde_site</span></span></span></span></span></span></span></span></span></span></span></span></a></p>
+<p style="padding-left: 30px;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">此範例本將cmsimde作為子目錄硬件子模組修改，使用者可依需求自行自訂</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p style="padding-left: 30px;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">對應以太坊網址：</span></span></span></span></span></span></span></span></span></span></span></span><a href="https://mde.tw/cmsimde_site"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">https://mde.tw/cmsimde_site</span></span></span></span></span></span></span></span></span></span></span></span></a></p>
+<h1>公分西德</h1>
+<p><span style="background-color: #ccffcc;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">SMap</span></span></span></span></span></span></span></span></span></span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"> - 網站地圖 - 依序排列網站的所有頁面。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="background-color: #ccffcc;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">EditA</span></span></span></span></span></span></span></span></span></span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"> - 編輯所有頁面 - 將所有頁面放入編輯模式中，主要用於處理頁面遷移、刪除或決定衝突頁面內容版本。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="background-color: #ccffcc;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">編輯</span></span></span></span></span></span></span></span></span></span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">-編輯頁面-先選擇要編輯的單一頁面後，再點選編輯，即可進入單一頁面的編輯模式。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="background-color: #ccffcc;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">設定</span></span></span></span></span></span></span></span></span></span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">- 設定網站 - 編輯頁面標題與管理員密碼。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="background-color: #ccffcc;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">搜尋</span></span></span></span></span></span></span></span></span></span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">- 動態頁面內容關鍵字的搜尋。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="background-color: #ccffcc;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">IUpload</span></span></span></span></span></span></span></span></span></span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"> - 圖片檔案上傳 - 圖片檔案的上傳功能，可以上傳jpg、png和gif文件，其中若在手機上傳圖片文件，系統會自動將圖片檔案縮小為800x800大小。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="background-color: #ccffcc;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">IList</span></span></span></span></span></span></span></span></span></span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"> - 圖片檔案清單 - 清單可以直接在頁面編輯模式中引用的圖片檔案。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="background-color: #ccffcc;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">FUpload</span></span></span></span></span></span></span></span></span></span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"> - 檔案上傳 - 一般檔案的上傳功能，目前可以上傳的檔案副檔名包括 'jpg', 'png', 'gif', '7z', 'pdf', 'zip', 'ttt', 'stl '、'txt'、'html'、'mp4'等，使用者可以自行修改。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="background-color: #ccffcc;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">FList</span></span></span></span></span></span></span></span></span></span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"> - 文件清單 - 清單可以直接在頁面編輯模式中引用的上傳文件。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="background-color: #ccffcc;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">登出</span></span></span></span></span></span></span></span></span></span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">-登出頁面編輯模式。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="background-color: #ccffcc;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">轉換</span></span></span></span></span></span></span></span></span></span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">-將動態網站中位於 config/content.htm 文件，透過分頁設定轉為內容目錄中的靜態網頁。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="background-color: #ccffcc;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">acp</span></span></span></span></span></span></span></span></span></span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"> - git add、git commit 和 git Push，通常只能在 localhost 或自架主機上網頁表單協助將以太坊改版內容到 Github 使用。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="background-color: #ccffcc;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">SStatic</span></span></span></span></span></span></span></span></span></span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"> - 啟動靜態網站 - 利用Python啟動網站伺服器功能，可以讓使用者檢查轉檔後的靜態網站內容。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="background-color: #ccffcc;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">RStatic</span></span></span></span></span></span></span></span></span></span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"> - Replit 靜態網站 URL - 僅用於 Replit 模式，當使用者點擊 SStatic 後，可以點擊 RStatic 進入尚未推向 Github Pages 的靜態網站。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="background-color: #ccffcc;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">80</span></span></span></span></span></span></span></span></span></span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"> - 由 init.py 中 static_port 決定的連接字串，一般不使用 80，只能在 Replit 中為了與動態網站佔用連接埠才，特別設為 80。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<h1>期末專案</h1>
+<h4><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">影片連結</span></span></span></span></span></span></strong></h4>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><a href="/downloads/連接4 - Google Chrome 2024-06-04 20-59-17.mp4"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">/downloads/連結4 - Google Chrome 2024-06-04 20-59-17.mp4</span></span></span></span></span></span></span></span></span></span></a> </span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"></span></span></p>
+<h4><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">如何詢問chatgpt</span></span></span></span></span></span></span></span></strong></h4>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Q：幫我用python製作四子棋的小遊戲並用網頁方式轉發</span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">問：我使用網頁方式發送192.168.56.1是我的地址</span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">1.設定Flask項目</span></span></span></span></span></span></span></span></span></span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">連接4/</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    ├──靜態/</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    │ ├── 樣式.css</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    │ └── 腳本.js</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    ├── 模板/</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    │ └──index.html</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    └── 應用程式.py</span></span></span></span></span></span></span></span><span></span>
 </pre>
-<h3>程式解釋</h3>
-<ol>
-<li>
-<p><strong>初始化遊戲板</strong>：</p>
-<ul>
-<li>使用<code>numpy</code>創建一個 6 行 7 列的矩陣，初始值全為 0。</li>
-</ul>
-</li>
-<li>
-<p><strong>顯示遊戲板</strong>：</p>
-<ul>
-<li><code>print_board</code>函數顯示遊戲板，使用<code>np.flip</code>來翻轉矩陣，因為放置棋子時是從底部開始的。</li>
-</ul>
-</li>
-<li>
-<p><strong>放置棋子</strong>：</p>
-<ul>
-<li><code>is_valid_location</code>函數檢查某列是否可以放置棋子。</li>
-<li><code>get_next_open_row</code>函數返回該列中可以放置棋子的行號。</li>
-<li><code>drop_piece</code>函數在指定位置放置棋子。</li>
-</ul>
-</li>
-<li>
-<p><strong>檢查勝利條件</strong>：</p>
-<ul>
-<li><code>winning_move</code>函數檢查是否有玩家在橫向、縱向或對角線上連成四子。</li>
-</ul>
-</li>
-<li>
-<p><strong>主遊戲循環</strong>：</p>
-<ul>
-<li>玩家交替進行操作，輸入要放置棋子的列號，並檢查是否獲勝。</li>
-</ul>
-</li>
-</ol><h1>作業</h1>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">2.編寫Flask( </span></span></span></span></span></span></span></span><code>app.py</code><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">)</span></span></span></span></span></span></span></span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">從燒瓶導入燒瓶，渲染模板，請求，jsonify</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+應用程式=燒瓶（__名稱__）</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+行計數 = 6</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+COLUMN_COUNT = 7</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+def create_board():</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    返回 [[0 for _ in range(COLUMN_COUNT)] for _ in range(ROW_COUNT)]</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+板 = create_board()</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+def check_winner(棋盤, 棋子):</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    #檢查水平位置</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    對於範圍內的 c (COLUMN_COUNT-3)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        對於範圍內的r (ROW_COUNT)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            if all([board[r][c+i] == a for i in range(4)]):</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                回傳真</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    # 檢查垂直位置</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    對於範圍內的 c (COLUMN_COUNT)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        對於範圍內的r (ROW_COUNT-3)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            if all([board[r+i][c] == a for i in range(4)]):</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                回傳真</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    #檢查傾向的對角線</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    對於範圍內的 c (COLUMN_COUNT-3)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        對於範圍內的r (ROW_COUNT-3)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            if all([board[r+i][c+i] == a for i in range(4)]):</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                回傳真</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    #檢查負斜率的對角線</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    對於範圍內的 c (COLUMN_COUNT-3)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        對於範圍（3，ROW_COUNT）中的r：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            if all([板[ri][c+i] == a for i in range(4)]):</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                回傳真</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    回傳錯誤</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+@app.route('/')</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+定義指數（）：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    返回 render_template('index.html')</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+@app.route('/move', Method=['POST'])</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+定義移動（）：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    資料 = request.get_json()</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    列 = 資料['列']</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    件 = 數據['件']</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    對於範圍內的r (ROW_COUNT)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        如果板[r][列] == 0:</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            板[r][col] = 一塊</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            if check_winner(棋盤, 棋子):</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                返回 jsonify({'winner':piece})</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            休息</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    返回 jsonify({'board': 板})</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+如果 __name__ == '__main__':</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    app.run（主機='0.0.0.0'，連接埠=5000，調試=True）</span></span><span></span>
+</pre>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">3.編寫前端HTML ( </span></span><code>templates/index.html</code><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">)</span></span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">&lt;!DOCTYPE html&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+&lt;html lang="en"&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+&lt;頭&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    &lt;元字元集=“UTF-8”&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    &lt;meta name =“viewport”content =“width = device-width，initial-scale = 1.0”&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    &lt;標題&gt;連接4&lt;/標題&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    &lt;link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+&lt;/頭&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+&lt;正文&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    &lt;h1&gt;連線 4&lt;/h1&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    &lt;div id="board"&gt;&lt;/div&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    &lt;script src="{{ url_for('static', filename='script.js') }}"&gt;&lt;/script&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+&lt;/正文&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+&lt;/html&gt;</span></span><span></span>
+</pre>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">4.新增CSS樣式( </span></span><code>static/style.css</code><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">)</span></span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">身體 {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    顯示：柔性；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    彎曲方向：列；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    對齊項目：居中；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    字體系列：Arial、無襯線字體；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+＃木板 {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    顯示：網格；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    網格模板列：重複（7、50px）；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    網格間隙：5px；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+。</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    寬度：50px；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    高度：50px；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    背景顏色：淺藍色；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    顯示：柔性；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    對齊項目：居中；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    調整內容：居中；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    遊標：指針；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+。</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    背景顏色：紅色；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+。</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    背景顏色：黃色；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+</pre>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">5.新增JavaScript邏輯 ( </span></span><code>static/script.js</code><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">)</span></span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">const boardElement = document.getElementById('board');<span></span>
+let board = Array(6).fill().map(() =&gt; Array(7).fill(0));<span></span>
+let currentPlayer = 1;<span></span>
+<span></span>
+function createBoard() {<span></span>
+    boardElement.innerHTML = '';<span></span>
+    for (let r = 0; r &lt; 6; r++) {<span></span>
+        for (let c = 0; c &lt; 7; c++) {<span></span>
+            const cell = document.createElement('div');<span></span>
+            cell.classList.add('cell');<span></span>
+            cell.dataset.row = r;<span></span>
+            cell.dataset.col = c;<span></span>
+            cell.addEventListener('click', handleClick);<span></span>
+            boardElement.appendChild(cell);<span></span>
+        }<span></span>
+    }<span></span>
+}<span></span>
+<span></span>
+function handleClick(event) {<span></span>
+    const col = event.target.dataset.col;<span></span>
+    fetch('/move', {<span></span>
+        method: 'POST',<span></span>
+        headers: { 'Content-Type': 'application/json' },<span></span>
+        body: JSON.stringify({ col: parseInt(col), piece: currentPlayer })<span></span>
+    })<span></span>
+    .then(response =&gt; response.json())<span></span>
+    .then(data =&gt; {<span></span>
+        if (data.winner) {<span></span>
+            alert(`Player ${data.winner} wins!`);<span></span>
+        }<span></span>
+        board = data.board;<span></span>
+        updateBoard();<span></span>
+        currentPlayer = currentPlayer === 1 ? 2 : 1;<span></span>
+    });<span></span>
+}<span></span>
+<span></span>
+function updateBoard() {<span></span>
+    for (let r = 0; r &lt; 6; r++) {<span></span>
+        for (let c = 0; c &lt; 7; c++) {<span></span>
+            const cell = document.querySelector(`.cell[data-row="${r}"][data-col="${c}"]`);<span></span>
+            cell.classList.remove('red', 'yellow');<span></span>
+            if (board[r][c] === 1) {<span></span>
+                cell.classList.add('red');<span></span>
+            } else if (board[r][c] === 2) {<span></span>
+                cell.classList.add('yellow');<span></span>
+            }<span></span>
+        }<span></span>
+    }<span></span>
+}<span></span>
+<span></span>
+createBoard();<span></span>
+</pre>
+<p>Q:我要在遊戲結束後,按下鍵盤空白鍵可以讓遊戲重新開始,回到一開始介面,請給我完整版的</p>
+<p>1.app.py</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">from flask import Flask, render_template, request, jsonify<span></span>
+<span></span>
+app = Flask(__name__)<span></span>
+<span></span>
+ROW_COUNT = 6<span></span>
+COLUMN_COUNT = 7<span></span>
+<span></span>
+def create_board():<span></span>
+    return [[0 for _ in range(COLUMN_COUNT)] for _ in range(ROW_COUNT)]<span></span>
+<span></span>
+board = create_board()<span></span>
+<span></span>
+def check_winner(board, piece):<span></span>
+    # Check horizontal locations<span></span>
+    for c in range(COLUMN_COUNT-3):<span></span>
+        for r in range(ROW_COUNT):<span></span>
+            if all([board[r][c+i] == piece for i in range(4)]):<span></span>
+                return True<span></span>
+<span></span>
+    # Check vertical locations<span></span>
+    for c in range(COLUMN_COUNT):<span></span>
+        for r in range(ROW_COUNT-3):<span></span>
+            if all([board[r+i][c] == piece for i in range(4)]):<span></span>
+                return True<span></span>
+<span></span>
+    # Check positively sloped diagonals<span></span>
+    for c in range(COLUMN_COUNT-3):<span></span>
+        for r in range(ROW_COUNT-3):<span></span>
+            if all([board[r+i][c+i] == piece for i in range(4)]):<span></span>
+                return True<span></span>
+<span></span>
+    # Check negatively sloped diagonals<span></span>
+    for c in range(COLUMN_COUNT-3):<span></span>
+        for r in range(3, ROW_COUNT):<span></span>
+            if all([board[r-i][c+i] == piece for i in range(4)]):<span></span>
+                return True<span></span>
+    return False<span></span>
+<span></span>
+@app.route('/')<span></span>
+def index():<span></span>
+    return render_template('index.html')<span></span>
+<span></span>
+@app.route('/move', methods=['POST'])<span></span>
+def move():<span></span>
+    data = request.get_json()<span></span>
+    col = data['col']<span></span>
+    piece = data['piece']<span></span>
+    for r in range(ROW_COUNT-1, -1, -1):<span></span>
+        if board[r][col] == 0:<span></span>
+            board[r][col] = piece<span></span>
+            if check_winner(board, piece):<span></span>
+                return jsonify({'winner': piece})<span></span>
+            break<span></span>
+    return jsonify({'board': board})<span></span>
+<span></span>
+@app.route('/reset', methods=['POST'])<span></span>
+def reset():<span></span>
+    global board<span></span>
+    board = create_board()<span></span>
+    return jsonify({'board': board})<span></span>
+<span></span>
+if __name__ == '__main__':<span></span>
+    app.run(host='0.0.0.0', port=5000, debug=True)<span></span>
+</pre>
+<div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium">
+<div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>2.templates/index.html<br/><br/></span></div>
+<div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md">
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">&lt;!DOCTYPE html&gt;<span></span>
+&lt;html lang="en"&gt;<span></span>
+&lt;head&gt;<span></span>
+    &lt;meta charset="UTF-8"&gt;<span></span>
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<span></span>
+    &lt;title&gt;Connect 4&lt;/title&gt;<span></span>
+    &lt;link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"&gt;<span></span>
+&lt;/head&gt;<span></span>
+&lt;body&gt;<span></span>
+    &lt;h1&gt;Connect 4&lt;/h1&gt;<span></span>
+    &lt;div id="board"&gt;&lt;/div&gt;<span></span>
+    &lt;script src="{{ url_for('static', filename='script.js') }}"&gt;&lt;/script&gt;<span></span>
+&lt;/body&gt;<span></span>
+&lt;/html&gt;<span></span>
+</pre>
+<span>3.static/style.css</span></div>
+<div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md">
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">body {<span></span>
+    display: flex;<span></span>
+    flex-direction: column;<span></span>
+    align-items: center;<span></span>
+    font-family: Arial, sans-serif;<span></span>
+}<span></span>
+<span></span>
+#board {<span></span>
+    display: grid;<span></span>
+    grid-template-columns: repeat(7, 50px);<span></span>
+    grid-gap: 5px;<span></span>
+}<span></span>
+<span></span>
+.cell {<span></span>
+    width: 50px;<span></span>
+    height: 50px;<span></span>
+    background-color: lightblue;<span></span>
+    display: flex;<span></span>
+    align-items: center;<span></span>
+    justify-content: center;<span></span>
+    cursor: pointer;<span></span>
+}<span></span>
+<span></span>
+.red {<span></span>
+    background-color: red;<span></span>
+}<span></span>
+<span></span>
+.yellow {<span></span>
+    background-color: yellow;<span></span>
+}<span></span>
+</pre>
+<span>4.static/script.js</span></div>
+<div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md">
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">const boardElement = document.getElementById('board');<span></span>
+let board = Array(6).fill().map(() =&gt; Array(7).fill(0));<span></span>
+let currentPlayer = 1;<span></span>
+let gameEnded = false; // 增加一個標誌來追蹤遊戲是否已經結束<span></span>
+<span></span>
+function createBoard() {<span></span>
+    boardElement.innerHTML = '';<span></span>
+    for (let r = 0; r &lt; 6; r++) {<span></span>
+        for (let c = 0; c &lt; 7; c++) {<span></span>
+            const cell = document.createElement('div');<span></span>
+            cell.classList.add('cell');<span></span>
+            cell.dataset.row = r;<span></span>
+            cell.dataset.col = c;<span></span>
+            cell.addEventListener('click', handleClick);<span></span>
+            boardElement.appendChild(cell);<span></span>
+        }<span></span>
+    }<span></span>
+}<span></span>
+<span></span>
+function handleClick(event) {<span></span>
+    if (gameEnded) return; // 如果遊戲已經結束，不再響應點擊事件<span></span>
+<span></span>
+    const col = event.target.dataset.col;<span></span>
+    fetch('/move', {<span></span>
+        method: 'POST',<span></span>
+        headers: { 'Content-Type': 'application/json' },<span></span>
+        body: JSON.stringify({ col: parseInt(col), piece: currentPlayer })<span></span>
+    })<span></span>
+    .then(response =&gt; response.json())<span></span>
+    .then(data =&gt; {<span></span>
+        if (data.winner) {<span></span>
+            alert(`Player ${data.winner} wins!`);<span></span>
+            gameEnded = true; // 設置標誌表示遊戲已經結束<span></span>
+        }<span></span>
+        board = data.board;<span></span>
+        updateBoard();<span></span>
+        currentPlayer = currentPlayer === 1 ? 2 : 1;<span></span>
+    });<span></span>
+}<span></span>
+<span></span>
+function updateBoard() {<span></span>
+    for (let r = 0; r &lt; 6; r++) {<span></span>
+        for (let c = 0; c &lt; 7; c++) {<span></span>
+            const cell = document.querySelector(`.cell[data-row="${r}"][data-col="${c}"]`);<span></span>
+            cell.classList.remove('red', 'yellow');<span></span>
+            if (board[r][c] === 1) {<span></span>
+                cell.classList.add('red');<span></span>
+            } else if (board[r][c] === 2) {<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                cell.classList.add('黃色');</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+函數重置遊戲（）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    獲取（'/重置'，{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        方法：“發布”</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    })</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    .then(回應=&gt;response.json())</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    .then(數據 =&gt; {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        板=數據.板;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        更新板（）；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        當前玩家= 1；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        遊戲結束=假； // 重置標誌表示遊戲尚未結束</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    });</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+document.addEventListener('keydown', 事件 =&gt; {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    if (event.code === '空間') {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        重置遊戲（）；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+});</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+創建板（）；</span></span><span></span>
+</pre>
+<span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Q：我按了鼠標左鍵卻沒有開始</span></span></span></div>
+<div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">1.</span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">更新</span></span><code>static/script.js</code>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">const boardElement = document.getElementById('board');</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+讓板 = Array(6).fill().map(() =&gt; Array(7).fill(0));</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+讓當前玩家= 1；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+讓遊戲結束= false；</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+函數創建板（）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    boardElement.innerHTML = '';</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    for (設 r = 0; r &lt; 6; r++) {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        for (令 c = 0; c &lt; 7; c++) {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            const cell = document.createElement('div');</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            cell.classList.add('cell');</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            cell.dataset.row = r;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            cell.dataset.col = c;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            cell.addEventListener('click',handleClick);</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            boardElement.appendChild(單元格);</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+函數handleClick（事件）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    如果（遊戲結束）返回；</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    const col = event.target.dataset.col;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    獲取（'/移動'，{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        方法：'POST'，</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        headers: { 'Content-Type': 'application/json' },</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        body: JSON.stringify({ col: parseInt(col),piece: currentPlayer })</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    })</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    .then(回應=&gt;response.json())</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    .then(數據 =&gt; {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        如果（數據.獲勝者）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            Alert(`玩家 ${data.winner} 獲勝！`);</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            遊戲結束=真；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        板=數據.板;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        更新板（）；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        目前玩家 = 當前玩家 === 1 ？ 2：1；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    });</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+函數 updateBoard() {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    for (設 r = 0; r &lt; 6; r++) {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        for (令 c = 0; c &lt; 7; c++) {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            const cell = document.querySelector(`.cell[data-row="${r}"][data-col="${c}"]`);</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            cell.classList.remove('紅色', '黃色');</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            if (板[r][c] === 1) {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                cell.classList.add('紅色');</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            } else if (板[r][c] === 2) {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                cell.classList.add('黃色');</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+函數重置遊戲（）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    獲取（'/重置'，{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        方法：“發布”</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    })</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    .then(回應=&gt;response.json())</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    .then(數據 =&gt; {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        板=數據.板;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        更新板（）；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        當前玩家= 1；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        遊戲結束=假；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    });</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+document.addEventListener('keydown', 事件 =&gt; {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    if (event.code === '空間') {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        重置遊戲（）；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+});</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+創建板（）；</span></span><span></span>
+</pre>
+<p><br/><br/></p>
+</div>
+</div><h1>工作</h1>
 <h2>W2</h2>
-<p>1.確認所有學員已經建立帳號:<span>帶有以 Python 編寫的動態網站程式, 以及位於 content 目錄中的靜態網頁資料.</span></p>
-<p>2.<span>確認學員會用replit維護網站:Replit 檢視動態網站或網誌推送到 Github 之前的內容, 必須要在動態與靜態模式中擇一使用</span></p>
-<p><span>3.如何利用Codespaces維護網站:Codespaces 中維護 wcm2024 的過程幾乎如同在 localhost Windows 10 或 11 的操作系統環境中進行</span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">1.確認所有學員已建立帳號：</span></span></span></span></span></span><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">附上有用Python編寫的動態網站程序，以及位於內容目錄中的靜態網頁資料。</span></span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">2.</span></span></span></span></span></span><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">確認練習會用replit維護網站：Replit檢視動態網站或網誌到Github之前的內容，必須在動態與靜態模式中擇一使用</span></span></span></span></span></span></span></p>
+<p><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">3.如何利用Codespaces維護網站：Codespaces中維護wcm2024的過程幾乎類似於在本機主機Windows 10或11的網路環境中進行</span></span></span></span></span></span></span></p>
 <h2>W3</h2>
 <h2>W4</h2>
-<p>有關建立網站:<span>網站指的是 Web site針對網頁瀏覽器檢視的內容加以管理，利用 Github 所提供的 Pages 功能來建立網頁進行管理。</span></p>
-<p><span>Replit靜態網站檢視:若要執行動態網站，可以在 Shell 執行 python3 main.py 或者使用 Replit 的 Run 按鍵， Shell 執行 python3 main2.py 就可以執行倉儲內的靜態網站檢視。</span></p>
-<p><span>Replit建立分組倉儲權限:</span></p>
-<p>分組網站 import 到 Replit, 必須自行在 /home/runner/.ssh 目錄下建立 id_rsa 與 config (id_rsa.pub 必須登錄到 Github 對應帳號), 其中的 config 內容為:</p>
-<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">Host github.com
-User git
-Hostname github.com</pre>
-<p><span>ssh.py 程式內容如下:</span></p>
-<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">import os
-if not os.path.exists("/home/runner/.ssh"): 
-    os.makedirs("/home/runner/.ssh") 
-os.system("mv ./downloads/id_rsa.txt /home/runner/.ssh/id_rsa")
-os.system("mv ./downloads/config.txt /home/runner/.ssh/config")
-os.system("chmod og-rwx /home/runner/.ssh/id_rsa")
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">有關建立的網站：</span></span></span></span></span></span><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">網站是指針對網頁瀏覽器檢視的內容進行管理的網站，利用Github所提供的頁面功能來建立網頁進行管理。</span></span></span></span></span></span></span></p>
+<p><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Replit靜態網站檢視：若要執行動態網站，可以在Shell中執行python3 main.py或使用Replit的運作按鈕，Shell執行python3 main2.py就可以執行以太坊內的靜態網站檢視。</span></span></span></span></span></span></span></p>
+<p><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Replit建立錢包權限：</span></span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">套件網站匯入Replit，必須自行在 /home/runner/.ssh 目錄下建立 id_rsa 和 config (id_rsa.pub 必須登入 Github 對應帳號)，其中的 config 內容為:</span></span></span></span></span></span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">託管 github.com</span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+用戶git</span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+主機名稱 github.com</span></span></span></span></span></span></pre>
+<p><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">ssh.py程式內容如下：</span></span></span></span></span></span></span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">導入作業系統</span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+如果不是 os.path.exists("/home/runner/.ssh"):</span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    os.makedirs(“/home/runner/.ssh”)</span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+os.system("mv ./downloads/id_rsa.txt /home/runner/.ssh/id_rsa")</span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+os.system("mv ./downloads/config.txt /home/runner/.ssh/config")</span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+os.system("chmod og-rwx /home/runner/.ssh/id_rsa")</span></span></span></span></span></span><span></span>
 </pre>
 <h2>W5</h2>
-<p>以 iframe 嵌入先前的教學影片做課前預習</p>
-<p>1.在Replit 平台上的分組倉儲權限設定</p>
-<p>2.Putty Solvespace STL 零件檢視方法</p>
-<p>3.大規模人工智慧運算的時代：前景、影響及回應</p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">以iframe嵌入先前的教學影片做課前預習</span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">1.在Replit平台上的錢包權限設置</span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">2.Putty Solvespace STL零件檢視方法</span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">3.大規模人工智能攻擊的時代：前景、影響力及應對</span></span></span></span></span></span></p>
 <h2>W6</h2>
-<p>1.</p>
-<p><strong>git 的發展歷史</strong></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">1.</span></span></span></span></span></span></p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">git的發展歷史</span></span></span></span></span></span></strong></p>
 <div class="flex-1 overflow-hidden">
 <div class="react-scroll-to-bottom--css-ksgzn-79elbk h-full">
 <div class="react-scroll-to-bottom--css-ksgzn-1n7m0yu">
@@ -197,29 +515,29 @@ os.system("chmod og-rwx /home/runner/.ssh/id_rsa")
 <div class="flex flex-grow flex-col max-w-full">
 <div class="min-h-[20px] text-message flex flex-col items-start gap-3 whitespace-pre-wrap break-words [.text-message+&amp;]:mt-5 overflow-x-auto" data-message-author-role="assistant" data-message-id="67c0e0e4-658d-43cc-89c6-77f7d2c3f39e" dir="auto">
 <div class="markdown prose w-full break-words dark:prose-invert light">
-<p>Git 是一個分散式版本控制系統，由 Linus Torvalds 於 2005 年創建。Git 的發展歷史可以追溯到 Linux 內核開發過程中的需求。以下是 Git 的發展歷程：</p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Git 是一個分散式的版本控制系統，由 Linus Torvalds 於 2005 年創建。</span></span></span></span></span></span></p>
 <ol>
 <li>
-<p><strong>2005 年</strong>：Linus Torvalds 開始開發 Git。他尋找了一個更好的版本控制系統來管理 Linux 內核的開發，因為 BitKeeper 不再免費提供使用。</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">2005年</span></span></span></span></span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：Linus Torvalds開始開發Git。</span></span></span></span></span></span></p>
 </li>
 <li>
-<p><strong>2005 年 4 月</strong>：Git 的第一個版本（1.0）發布。在開發過程中，許多 Linux 開發者貢獻了代碼，幫助 Git 的成長。</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">2005年4月</span></span></span></span></span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：Git的第一個版本（1.0）發布。</span></span></span></span></span></span></p>
 </li>
 <li>
-<p><strong>2005 年至今</strong>：Git 穩步成長，吸引了全球開發者社區的關注和貢獻。它迅速成為了最受歡迎的版本控制系統之一，廣泛應用於軟體開發領域。</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">2005 年至今</span></span></span></span></span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：Git 的成長，吸引了全球開發者社群的關注與貢獻。</span></span></span></span></span></span></p>
 </li>
 <li>
-<p><strong>2008 年</strong>：GitHub 成立，為 Git 提供了一個流行的主機服務平台，使得開發者可以輕鬆共享和協作。</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">2008年</span></span></span></span></span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：GitHub成立，為Git提供了一個受歡迎的主機服務平台，讓開發者可以輕鬆分享和協作。</span></span></span></span></span></span></p>
 </li>
 <li>
-<p><strong>2016 年</strong>：Microsoft 買下 GitHub，這一舉動在開源社區引起了一些爭議，但也為 Git 的發展提供了更多資源和支持。</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">2016年</span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：微軟收購了GitHub，這項舉動在開源社群引起了一些爭議，但也為Git的發展提供了更多的資源和支援。</span></span></p>
 </li>
 <li>
-<p><strong>2020 年</strong>：GitHub 宣布啟動代碼移動計劃，計劃將所有項目的主要代碼存儲庫轉移到遠程儲存庫中。這項計劃將加速代碼庫的存取速度，提高性能。</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">2020 年</span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：GitHub 宣布啟動程式碼移動計劃，計劃將所有專案的主要程式碼儲存庫轉移到遠端儲存庫。</span></span></p>
 </li>
 </ol>
-<p>總的來說，Git 的發展歷史是一個開放和協作的過程，得益於全球開發者社區的不懈努力和貢獻。Git 不僅在軟體開發中得到廣泛應用，還成為了許多領域進行版本控制的首選工具。</p>
-<p><strong>git創作人的相關履歷</strong></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">總的來說，Git 的發展歷史是一個開放和協作的過程，得益於全球開發者社群的不懈努力和貢獻。工具。</span></span></p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">git 創作者的相關履歷</span></span></strong></p>
 </div>
 </div>
 </div>
@@ -233,10 +551,10 @@ os.system("chmod og-rwx /home/runner/.ssh/id_rsa")
 </div>
 </div>
 </div>
-<p>Git 的創造者是 Linux 核心的創建者 Linus Torvalds。他是一位芬蘭籍的計算機科學家，於 1991 年創建了 Linux 作業系統，並在開源社區中享有極高的聲譽。</p>
-<p>Linus Torvalds 出生於 1969 年 12 月 28 日，畢業於赫爾辛基大學，主修電腦科學。他在創建 Linux 核心的同時，也是 Git 版本控制系統的創建者和主要開發者。</p>
-<p>在他的職業生涯中，Torvalds 曾就職於 Transmeta Corporation 和 Open Source Development Labs。他的工作和貢獻使他成為了開源社區的一個重要人物，並且獲得了多項獎項和榮譽。</p>
-<p>Torvalds 以其開放、直率和自由的風格而聞名，他在維護 Linux 核心和 Git 項目的過程中始終堅持這一風格。他通過他的工作，為開源軟體的發展和普及做出了重大貢獻。</p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Git 的創造者是 Linux 核心的創建者 Linus Torvalds。</span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Linus Torvalds 出生於 1969 年 12 月 28 日，從赫爾辛基大學畢業，主修電腦科學。</span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">在他的職業生涯中，Torvalds 曾就職於 Transmeta Corporation 和開源開發實驗室。</span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Torvalds 以開放、直率和自由的風格而聞名，他在 Linux 核心和 Git 專案的過程中始終堅持維護這一風格。</span></span></p>
 <div class="w-full text-token-text-primary" data-testid="conversation-turn-8" dir="auto">
 <div class="px-4 py-2 justify-center text-base md:gap-6 m-auto">
 <div class="flex flex-1 text-base mx-auto gap-3 juice:gap-4 juice:md:gap-6 md:px-5 lg:px-1 xl:px-5 md:max-w-3xl lg:max-w-[40rem] xl:max-w-[48rem] group">
@@ -244,42 +562,42 @@ os.system("chmod og-rwx /home/runner/.ssh/id_rsa")
 <div class="flex-col gap-1 md:gap-3">
 <div class="flex flex-grow flex-col max-w-full">
 <div class="min-h-[20px] text-message flex flex-col items-start gap-3 whitespace-pre-wrap break-words [.text-message+&amp;]:mt-5 overflow-x-auto" data-message-author-role="user" data-message-id="aaa28b7e-a677-4f1b-9f2d-37174efccb24" dir="auto">
-<div class=""><strong>請問git如何應用在Master CAM</strong></div>
+<div class=""><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">請問git如何在Master CAM應用</span></span></strong></div>
 </div>
 </div>
 <div class="mt-1 flex gap-3 empty:hidden juice:justify-end">
 <div class="text-gray-400 flex self-end lg:self-center items-center justify-center lg:justify-start mt-0 -ml-1 h-7 gap-[2px] visible"></div>
 <div class="text-gray-400 flex self-end lg:self-center items-center justify-center lg:justify-start mt-0 -ml-1 h-7 gap-[2px] visible">
-<p>Git 在機械設計專業中的應用通常不是直接與 Master CAM（一種用於電腦輔助製造的軟體）整合，而是在開發流程中用於版本控制和協作。以下是一些在機械設計專業中使用 Git 的情況：</p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Git在機械設計專業中的應用通常不是直接與Master CAM（一種用於電腦輔助製造的軟體）集成，而是在開發流程中用於版本控制和協作。的情況：</span></span></p>
 <ol>
 <li>
-<p><strong>版本控制</strong>：機械設計過程中會產生大量的 CAD（電腦輔助設計）文件、製造程序等。使用 Git 可以輕鬆管理這些文件的版本，追蹤更改歷史，並能夠在需要時回復到先前的版本。這使得團隊成員可以同步工作，而不必擔心文件的覆蓋或遺失。</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">版本控制</span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：機械設計過程中會產生大量的CAD（電腦輔助設計）檔案、製造程式等。使得團隊成員可以同步工作，而不必擔心文件的覆蓋或遺失。</span></span></p>
 </li>
 <li>
-<p><strong>協作</strong>：Git 可以使得團隊成員能夠同時進行機械設計項目的協作。他們可以在本地工作，然後通過 Git 將他們的更改推送到共享的遠程存儲庫中。這樣就可以避免文件的碰撞，並確保所有人都在同一頁面上工作。</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">協作</span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：Git 可以使團隊成員能夠同時進行機械設計專案的協作 他們可以在本地工作，然後透過 Git 將他們的主動更改到共享的遠端儲存庫中。在同一個頁面上工作。</span></span></p>
 </li>
 <li>
-<p><strong>分支管理</strong>：Git 的分支功能使得可以輕鬆地創建新的功能分支或修復分支，而不會影響到主要的開發分支。這對於在機械設計項目中進行不同版本或實驗性工作非常有用。</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">分支管理</span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：Git 的分支功能使得可以輕鬆地建立新的功能分支或修復分支，而不影響主要的開發分支。</span></span></p>
 </li>
 <li>
-<p><strong>代碼審查</strong>：即使在機械設計中，代碼審查也是一個重要的步驟。Git 的分支和合併功能使得可以輕鬆地進行代碼審查，確保代碼的質量和一致性。</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">程式碼審查</span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：即使在機械設計中，程式碼審查也是一個步驟。</span></span></p>
 </li>
 </ol>
-<p>總的來說，雖然 Git 不是直接與 Master CAM 整合的工具，但它可以作為機械設計專業中的一個強大的版本控制和協作工具，幫助團隊更有效地進行工作。</p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">總的來說，雖然 Git 不是直接與 Master CAM 整合的工具，但它可以作為機械設計專業中的一個強大的版本控制和協作工具，幫助團隊更有效地進行工作。</span></span></p>
 <p></p>
-<p><strong>2.<span class="ui-provider qy bhh bhi bhj bhk bhl bhm bhn bho bhp bhq bhr bhs bht bhu bhv bhw bhx bhy bhz bia bib bic bid bie bif big bih bii bij bik bil bim bin bio" dir="ltr">假如要在 Windows 實際 demo git client 與 git server, 該如何進行?</span></strong></p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">2.</span></span><span class="ui-provider qy bhh bhi bhj bhk bhl bhm bhn bho bhp bhq bhr bhs bht bhu bhv bhw bhx bhy bhz bia bib bic bid bie bif big bih bii bij bik bil bim bin bio" dir="ltr"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">假設要在Windows實際示範git客戶端與git伺服器，如何進行？</span></span></span></strong></p>
 <p></p>
 <ol>
 <li>
-<p><strong>安裝 Git 客戶端</strong>：</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">安裝Git客戶端</span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：</span></span></p>
 <ul>
-<li>首先，你需要在 Windows 上安裝 Git 客戶端。你可以從 Git 官方網站（<a target="_new">https://git-scm.com/）下載</a> Git for Windows，然後按照安裝指南進行安裝。</li>
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">首先，你需要在 Windows 上安裝 Git 用戶</span><span style="vertical-align: inherit;">端</span></span><a target="_new"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">。</span></span></a><span style="vertical-align: inherit;"></span></li>
 </ul>
 </li>
 <li>
-<p><strong>設置 Git 客戶端</strong>：</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">設定Git客戶端</span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：</span></span></p>
 <ul>
-<li>安裝完成後，打開 Git Bash 或 Git 命令提示字元，設置使用者名稱和電子郵件地址
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">安裝完成後，開啟Git Bash或Git命令提示字符，設定使用者名稱和電子郵件地址</span></span>
 <div class="dark bg-gray-950 rounded-md">
 <div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span></span></div>
 </div>
@@ -287,15 +605,15 @@ os.system("chmod og-rwx /home/runner/.ssh/id_rsa")
 </ul>
 </li>
 <li>
-<p><strong>設置 Git 伺服器</strong>：</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">設定Git伺服器</span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：</span></span></p>
 <ul>
-<li>如果你想在本地搭建一個 Git 伺服器，你可以使用 Git 自帶的 <code>git daemon</code> 工具。在選擇一個目錄作為你的 Git 儲存庫後，運行以下命令啟動 Git 伺服器</li>
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">如果你想在本機上搭建一個 Git 伺服器，你可以使用 Git 內建的</span></span><code>git daemon</code><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">工具。</span></span></li>
 </ul>
 </li>
 <li>
-<p><strong>創建本地儲存庫</strong>：</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">建立本機儲存庫</span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：</span></span></p>
 <ul>
-<li>使用 Git 客戶端，在你的本地系統中創建一個新的 Git 儲存庫。你可以使用命令列界面或圖形用戶界面進行操作。例如，在命令提示字元中，切換到你想要創建儲存庫的目錄，然後執行
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">使用 Git 用戶端，在您的本機系統中建立一個新的 Git 儲存庫。目錄，然後執行</span></span>
 <div class="dark bg-gray-950 rounded-md">
 <div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span></span></div>
 </div>
@@ -303,9 +621,9 @@ os.system("chmod og-rwx /home/runner/.ssh/id_rsa")
 </ul>
 </li>
 <li>
-<p><strong>連接到 Git 伺服器</strong>：</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">連接到Git伺服器</span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：</span></span></p>
 <ul>
-<li>在本地儲存庫中，添加遠端伺服器的連結。假設你正在使用本地主機上運行的 Git 伺服器，則連結可以是類似 <code>git://localhost/yourrepo.git</code> 的格式。
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">在本機儲存庫中，新增終端伺服器的連結</span></span><code>git://localhost/yourrepo.git</code><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">。</span></span>
 <div class="dark bg-gray-950 rounded-md">
 <div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"></div>
 </div>
@@ -313,13 +631,13 @@ os.system("chmod og-rwx /home/runner/.ssh/id_rsa")
 </ul>
 </li>
 <li>
-<p><strong>推送和拉取變更</strong>：</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">股東和拉取變更</span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：</span></span></p>
 <ul>
-<li>現在你已經設置了本地儲存庫和遠端伺服器的連結，你可以使用 Git 客戶端來推送你的變更到伺服器，或者從伺服器拉取別人的變更。</li>
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">現在您已經設定了本地儲存庫和外部伺服器器的鏈接，您可以使用 Git 客戶端來啟動您的變更到伺服器器，或從伺服器器拉取別人的變更。</span></span></li>
 </ul>
 </li>
 </ol>
-<p>通過這些步驟，你可以在 Windows 上演示如何設置 Git 客戶端和伺服器，以及如何在它們之間進行通信。</p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">透過這些步驟，你可以在 Windows 上示範如何設定 Git 用戶端和伺服器，以及如何在它們之間進行通訊。</span></span></p>
 </div>
 </div>
 </div>
@@ -328,21 +646,21 @@ os.system("chmod og-rwx /home/runner/.ssh/id_rsa")
 </div>
 </div>
 <h2>W8</h2>
-<div class="gizmo-shadow-stroke flex h-6 w-6 items-center justify-center overflow-hidden rounded-full">1.教育的本質看課程內容:<span>培養對</span><strong>學習的渴望</strong><span>和</span><strong>對世界的好奇心，</strong><span>培養對</span><strong>學習的渴望</strong><span>和</span><strong>對世界的好奇心。</strong></div>
+<div class="gizmo-shadow-stroke flex h-6 w-6 items-center justify-center overflow-hidden rounded-full"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">1.教育的本質課程內容：</span></span><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">培養對</span></span></span><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">學習的渴望</span></span></strong><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">和</span></span></span><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">對世界的好奇心，</span></span></strong><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">培養對</span></span></span><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">學習的渴望</span></span></strong><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">和</span></span></span><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">對世界的好奇心。</span></span></strong></div>
 <div class="gizmo-shadow-stroke flex h-6 w-6 items-center justify-center overflow-hidden rounded-full">
-<p dir="auto">廣泛的學習經驗：鼓勵學生<strong>探索不同科目和學科的廣泛教育的重要性</strong>。應該<strong>促進智識好奇心</strong>和<strong>批判性思維</strong>。</p>
-<p dir="auto">2.如何將影片嵌入網頁:上傳影片到youtube上，之後到自己的youtube影片下，點<span>分享</span>選擇第一個，把右側<span>超連結程式</span>碼複製，編輯網站，點Source code<span>，</span>把內容複製貼上。</p>
+<p dir="auto"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">廣泛的學習經驗：鼓勵學生</span></span><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">探索不同的科目和學科的</span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">廣泛</span></span><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">教育</span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">的</span></span><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">重要性</span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">。</span></span></p>
+<p dir="auto"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">2.如何將影片嵌入分享網頁：上傳影片到youtube上，之後到自己的youtube影片下，點</span></span><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">選擇</span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">第一個，把右側</span></span><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">超連結程式</span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">碼複製，編輯網站，點原始碼</span></span><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">，</span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">把內容複製貼上。</span></span></p>
 </div>
 <h2>W11</h2>
-<p>Brython程式環境:</p>
-<p>頁面 demo 在同一頁面下入多個線上 Ace 編輯器與執行按鈕 (<a href="https://zhe41223118.github.io/wcm2024/downloads/practice_html.txt">practice_html.txt</a><span> </span>動態頁面超文件).</p>
-<p><a href="https://zhe41223118.github.io/wcm2024/downloads/practice_html.txt">practice_html.txt</a><span> </span>動態頁面超文件應該可以在啟動 Brython 時, 設定將 .py 檔案放入 downloads/py 目錄中引用.</p>
-<p>亦即將所有對應的 html 也使用 Brython 產生, 然後寫為<span> </span><a href="https://docs.python.org/3/tutorial/classes.html">class</a><span> </span>後, 在範例導入時透過<span> </span><a href="https://docs.python.org/3/tutorial/classes.html#instance-objects">instance</a><span> </span>引用</p>
-<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">&lt;!-- 啟動 Brython --&gt;
-&lt;script&gt;
-window.onload=function(){
-brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
-}
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Brython課程環境：</span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">頁面示範在同一頁面下入多個線上Ace編輯器與執行按鈕（</span></span><a href="https://zhe41223118.github.io/wcm2024/downloads/practice_html.txt"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">practice_html.txt</span></span></a><span> </span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">動態頁面超檔案）。</span></span></p>
+<p><a href="https://zhe41223118.github.io/wcm2024/downloads/practice_html.txt"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Practice_html.txt</span></span></a><span> </span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">動態頁面超檔案應該可以在啟動 Brython 時，設定會將 .py 檔案放入 downloads/py 目錄中引用。</span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">也即將所有對應的html也使用Brython產生，然後寫為</span><a href="https://docs.python.org/3/tutorial/classes.html"><span style="vertical-align: inherit;">類別</span></a><span style="vertical-align: inherit;">後，在範例導入時透過</span><a href="https://docs.python.org/3/tutorial/classes.html#instance-objects"><span style="vertical-align: inherit;">實例</span></a><span style="vertical-align: inherit;">引用</span></span><span> </span><a href="https://docs.python.org/3/tutorial/classes.html"><span style="vertical-align: inherit;"></span></a><span> </span><span style="vertical-align: inherit;"></span><span> </span><a href="https://docs.python.org/3/tutorial/classes.html#instance-objects"><span style="vertical-align: inherit;"></span></a><span> </span><span style="vertical-align: inherit;"></span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">&lt;!-- 啟動 Brython --&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+&lt;腳本&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+視窗.onload=函數(){</span></span><span></span>
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});<span></span>
+}<span></span>
 &lt;/script&gt;</pre>
 <p>從 1 累加到 100:</p>
 <p><button id="add1to100">1 add to 100</button></p>
@@ -362,7 +680,7 @@ brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 </div>
 <div class="ace_layer ace_marker-layer"></div>
 <div class="ace_layer ace_cursor-layer ace_hidden-cursors">
-<div class="ace_cursor"><label>Filename:<span> </span><input id="kw_filename" placeholder="input file name" type="text"/>.py</label><span> </span><input type="submit" value="Save"/></div>
+<div class="ace_cursor"><label>Filename:<span> </span><input id="kw_filename" placeholder="輸入檔名" type="text"/>.py</label><span> </span><input type="submit" value="Save"/></div>
 </div>
 </div>
 </div>
@@ -814,31 +1132,31 @@ brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 </li>
 <li><span>啟動虛擬環境：在命令提示符或終端機中，運行以下命令來啟動新的虛擬環境</span></li>
 <li>
-<p>安裝所需的套件：一旦虛擬環境啟動，你可以使用 <code>pip</code> 命令來安裝任何你需要的 Python 套件，就像在普通的 Python 環境中一樣。</p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">安裝所需的套件：一旦虛擬環境啟動，你就可以使用</span></span></span></span></span></span><code>pip</code><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">指令來安裝任何你需要的Python套件，就像在普通的Python環境中一樣。</span></span></span></span></span></span></p>
 </li>
 <li><span></span></li>
 </ol>
-<p>8.假如希望直接在網頁中利用 Brython 建立一個掃地機器人的工作模擬系統, 該如何進行?</p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">8.如果希望直接在網頁中利用Brython建立一個掃地機器人的工作模擬系統，該如何進行？</span></span></span></span></span></span></p>
 <ol>
 <li>
-<p><strong>準備 HTML 文件</strong>：首先，創建一個 HTML 文件，其中包含掃地機器人模擬的介面和必要的元素。這個 HTML 文件將包含一個畫布（canvas）元素，用於顯示掃地機器人的運動軌跡和清理效果。</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">準備HTML檔案</span></span></span></span></span></span></span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：首先，建立一個HTML文件，其中包含掃地機器人模擬的介面和必要的元素。</span></span></span></span></span></span></span></span></p>
 </li>
 <li>
-<p><strong>引入 Brython</strong>：在 HTML 文件中引入 Brython 的 JavaScript 文件，以便在網頁中運行 Python 代碼。</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">引入 Brython</span></span></span></span></span></span></span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：在 HTML 文件中引入 Brython 的 JavaScript 文件，以便在網頁中運行 Python 程式碼。</span></span></span></span></span></span></span></span></p>
 </li>
 <li>
-<p><strong>編寫 Brython 代碼</strong>：在 HTML 文件中編寫 Brython 代碼，來模擬掃地機器人的行為。這些代碼將控制掃地機器人在畫布上移動，以及清理地面的過程。</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">編寫Brython程式碼</span></span></span></span></span></span></span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：在HTML檔案中編寫Brython程式程式碼，來模擬掃地機器人的行為。</span></span></span></span></span></span></span></span></p>
 </li>
 <li>
-<p><strong>設計掃地機器人模擬介面</strong>：設計一個用於控制掃地機器人模擬的網頁界面，例如按鈕或滑塊，用戶可以通過這些界面來控制機器人的行動。</p>
+<p><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">設計掃地機器人模擬簡介</span></span></span></span></span></span></span></span></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">：設計一個用於控制掃地機器人模擬的網頁介面，例如按鈕或按鈕，使用者可以透過這些介面來控制機器人的動作。</span></span></span></span></span></span></span></span></p>
 </li>
 </ol>
-<p>9.wcm2024 課程除了可以使用<span> </span><a href="https://chat.openai.com/">ChatGPT</a><span> </span>外, 還能夠使用 Google<span> </span><a href="https://developers.googleblog.com/2024/04/gemini-15-pro-in-public-preview-with-new-features.html">Gemini Pro</a>, 請試著在解決上列問題時, 善用這兩個系統, 並將使用過程與心得整理在個人的課程網頁與網誌中.</p>
-<p>當我們面對掃地機器人的工作模擬系統問題時，利用 ChatGPT 和 Google Gemini Pro 可以帶來不同的優勢和體驗。</p>
-<p>ChatGPT 作為一個語言模型，可以幫助我們理解問題的本質，提供技術方面的解釋和建議。例如，在構建掃地機器人模擬系統時，我們可以向 ChatGPT 提問有關 Python、Brython、HTML 和網頁程式設計的問題，並獲得相應的指導和建議。</p>
-<p>另一方面，Google Gemini Pro 是一個強大的工具，可以幫助我們搜尋和查找技術文檔、教程和示例代碼。使用 Google Gemini Pro，我們可以快速找到有關 Brython 的官方文檔、線上教程和範例代碼，這些資源對於我們理解 Brython 的使用方式和建立掃地機器人模擬系統非常有幫助。</p>
-<p>在解決問題的過程中，我們可以先向 ChatGPT 提問，獲得基本的理解和指導，然後利用 Google Gemini Pro 進一步查找相關資源和詳細教程。通過這樣的方式，我們可以充分利用這兩個系統的優勢，更有效地解決問題並學習相關技術。</p>
-<p>將這個過程和心得整理在個人的課程網頁與網誌中，可以幫助我們記錄自己的學習過程和心得體會，同時也可以與他人分享這個寶貴的學習經驗，激勵和幫助更多人一起成長和進步。</p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">9.wcm2024課程除了可以使用</span></span></span></span></span></span></span><a href="https://chat.openai.com/"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">ChatGPT</span></span></span></span></span></span></span></a><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">外，還能夠使用Google </span></span></span></span></span></span></span><a href="https://developers.googleblog.com/2024/04/gemini-15-pro-in-public-preview-with-new-features.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Gemini Pro</span></span></span></span></span></span></span></a><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">，請嘗試在解決上列問題時，善用這兩個系統，這使用過程與心得整理在個人的課程網頁與網誌中。</span></span></span></span></span></span></span></span><span> </span><a href="https://chat.openai.com/"><span style="vertical-align: inherit;"></span></a><span> </span><span style="vertical-align: inherit;"></span><span> </span><a href="https://developers.googleblog.com/2024/04/gemini-15-pro-in-public-preview-with-new-features.html"><span style="vertical-align: inherit;"></span></a><span style="vertical-align: inherit;"></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">當我們解決機器人的工作模擬系統問題時，利用ChatGPT和Google Gemini Pro可以帶來不同的優勢和體驗。</span></span></span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">ChatGPT作為一個語言模型，可以幫助我們理解問題的本質，提供技術方面的解釋和建議。</span></span></span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">另一方面，Google Gemini Pro 是一個強大的工具，可以幫助我們搜尋和尋找技術文件、教學和範例程式碼。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">在解決問題的過程中，我們可以先向 ChatGPT 提問，了解基本的理解和指導，並利用 Google Gemini Pro 進一步尋找相關資源和詳細教學。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">將這個過程和心得整理在個人課程網頁和網誌中，可以幫助我們記錄自己的學習過程和心得知識，同時也可以與他人分享這個寶貴的學習經驗，並幫助更多的人一起成長和進步。</span></span></span></span></span></span></span></span></span></span></span></span></p>
 <p></p>
 <div class="w-full text-token-text-primary" data-testid="conversation-turn-8" dir="auto">
 <div class="px-4 py-2 justify-center text-base md:gap-6 m-auto">
@@ -868,48 +1186,48 @@ brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 </div>
 </div>
 </div>
-<h1>Brython</h1>
-<p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
-<h4>Examples:</h4>
-<p style="padding-left: 30px;"><a href="https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d">https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d</a></p>
-<p style="padding-left: 30px;"><a href="https://www.geeksforgeeks.org/python-programming-examples/">https://www.geeksforgeeks.org/python-programming-examples/</a></p>
-<p style="padding-left: 30px;"><a href="https://www.programiz.com/python-programming/examples">https://www.programiz.com/python-programming/examples</a></p>
-<p style="padding-left: 30px;"><a href="https://www.freecodecamp.org/news/python-code-examples-sample-script-coding-tutorial-for-beginners/">https://www.freecodecamp.org/news/python-code-examples-sample-script-coding-tutorial-for-beginners/</a></p>
-<h4>Python Tutorial:</h4>
-<p style="padding-left: 30px;"><a href="https://docs.python.org/3/tutorial/">https://docs.python.org/3/tutorial/</a></p>
-<p style="padding-left: 30px;"><a href="https://docs.python.org/3/tutorial/introduction.html">An informal introduction to Python</a></p>
-<h4>Indentation (Python 採 4 個 Spaces 縮排, 以界定執行範圍)</h4>
-<h4>Variables (<a href="https://github.com/python/cpython/blob/3.11/Lib/keyword.py">Python Keywords</a>)</h4>
-<h4>Comments (# 單行註解, 三個單引號或三個雙引號標註多行註解)</h4>
-<h4><a href="https://docs.python.org/3/tutorial/introduction.html#numbers">Numbers</a> (整數 int(), 浮點數 float())</h4>
-<h4><a href="https://docs.python.org/3/tutorial/introduction.html#strings">Strings</a> (字串)</h4>
-<h4>print (Python 內建函式, <a href="https://docs.python.org/3/library/functions.html#print">print()</a> 函式)</h4>
-<p><a href="https://docs.python.org/3/tutorial/controlflow.html">Python control flow tools</a></p>
-<h4 style="padding-left: 30px;"><a href="https://docs.python.org/3/tutorial/controlflow.html#for-statements">for</a></h4>
-<h4 style="padding-left: 30px;"><a href="https://docs.python.org/3/tutorial/controlflow.html#if-statements">if</a></h4>
-<h4 style="padding-left: 30px;"><a href="https://docs.python.org/3/tutorial/controlflow.html#the-range-function">range</a></h4>
-<h4>open</h4>
-<h4>read</h4>
-<h4><a href="https://docs.python.org/3/tutorial/introduction.html#lists">lists</a></h4>
-<h4><a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences">tuples</a></h4>
-<h4><a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionaries</a></h4>
-<h4><a href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions">functions</a></h4>
-<h4><a href="https://docs.python.org/3/tutorial/errors.html#exceptions">try ... except</a></h4>
-<h4><a href="https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops">break</a></h4>
-<h4><a href="https://docs.python.org/3/tutorial/controlflow.html#pass-statements">pass</a></h4>
-<h4><a href="https://docs.python.org/3/tutorial/classes.html?highlight=classes">classes</a></h4>
-<p>這個頁面 demo 如何在同一頁面下納入多個線上 Ace 編輯器與執行按鈕 (<a href="/downloads/practice_html.txt">practice_html.txt</a> 動態頁面超文件).</p>
-<p><a href="/downloads/practice_html.txt">practice_html.txt</a> 動態頁面超文件應該可以在啟動 Brython 時, 設定將 .py 檔案放入 downloads/py 目錄中引用.</p>
-<p>亦即將所有對應的 html 也使用 Brython 產生, 然後寫為 <a href="https://docs.python.org/3/tutorial/classes.html">class</a> 後, 在範例導入時透過 <a href="https://docs.python.org/3/tutorial/classes.html#instance-objects">instance</a> 引用.</p>
-<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;!-- 啟動 Brython --&gt;
-&lt;script&gt;
-window.onload=function(){
-brython({debug:1, pythonpath:['/static/','./../downloads/py/']});
-}
-&lt;/script&gt;</pre>
-<p>從 1 累加到 100:</p>
-<p><button id="add1to100">1 add to 100</button></p>
-<p>將 iterable 與 iterator <a href="https://home.gamer.com.tw/creationDetail.php?sn=4337438">相關說明</a>, 利用 Brython 與 Ace Editor 整理在這個頁面.</p>
+<h1>布萊通</h1>
+<p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">https://en.wikipedia.org/wiki/Python_（程式語言）</span></span></span></span></span></span></span></span></span></span></span></span></a></p>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">例子：</span></span></span></span></span></span></span></span></span></span></span></span></h4>
+<p style="padding-left: 30px;"><a href="https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d</span></span></span></span></span></span></span></span></span></span></span></span></a></p>
+<p style="padding-left: 30px;"><a href="https://www.geeksforgeeks.org/python-programming-examples/"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">https://www.geeksforgeeks.org/python-programming-examples/</span></span></span></span></span></span></span></span></span></span></span></span></a></p>
+<p style="padding-left: 30px;"><a href="https://www.programiz.com/python-programming/examples"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">https://www.programiz.com/python-programming/examples</span></span></span></span></span></span></span></span></span></span></span></span></a></p>
+<p style="padding-left: 30px;"><a href="https://www.freecodecamp.org/news/python-code-examples-sample-script-coding-tutorial-for-beginners/"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">https://www.freecodecamp.org/news/python-code-examples-sample-script-coding-tutorial-for-beginners/</span></span></span></span></span></span></span></span></span></span></span></span></a></p>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Python教學：</span></span></span></span></span></span></span></span></span></span></span></span></h4>
+<p style="padding-left: 30px;"><a href="https://docs.python.org/3/tutorial/"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">https://docs.python.org/3/tutorial/</span></span></span></span></span></span></span></span></span></span></span></span></a></p>
+<p style="padding-left: 30px;"><a href="https://docs.python.org/3/tutorial/introduction.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Python的平衡介紹</span></span></span></span></span></span></span></span></span></span></span></span></a></p>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">縮排（Python採用4個Spaces縮排，以介面執行範圍）</span></span></span></span></span></span></span></span></span></span></span></span></h4>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">變數（</span></span></span></span></span></span></span></span></span></span></span></span><a href="https://github.com/python/cpython/blob/3.11/Lib/keyword.py"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Python 關鍵字</span></span></span></span></span></span></span></span></span></span></span></span></a><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">）</span></span></span></span></span></span></span></span></span></span></span></span></h4>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">註（#單行註解、三單標註或三雙標註標註多行註解）</span></span></span></span></span></span></span></span></span></span></span></span></h4>
+<h4><a href="https://docs.python.org/3/tutorial/introduction.html#numbers"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">數</span></span></span></span></span></span></span></span></span></span></span></span></a><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">(整數 int(), 浮點數 float())</span></span></span></span></span></span></span></span></span></span></span></span></h4>
+<h4><a href="https://docs.python.org/3/tutorial/introduction.html#strings"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">字符串</span></span></span></span></span></span></span></span></span></span></span></span></a><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">（字串）</span></span></span></span></span></span></span></span></span></span></span></span></h4>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">print (Python 內建函數, </span></span></span></span></span></span></span></span></span></span></span></span><a href="https://docs.python.org/3/library/functions.html#print"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">print()</span></span></span></span></span></span></span></span></span></span></span></span></a><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">函數式)</span></span></span></span></span></span></span></span></span></span></span></span></h4>
+<p><a href="https://docs.python.org/3/tutorial/controlflow.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Python是控制流程工具</span></span></span></span></span></span></span></span></span></span></span></span></a></p>
+<h4 style="padding-left: 30px;"><a href="https://docs.python.org/3/tutorial/controlflow.html#for-statements"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">為了</span></span></span></span></span></span></span></span></span></span></span></span></a></h4>
+<h4 style="padding-left: 30px;"><a href="https://docs.python.org/3/tutorial/controlflow.html#if-statements"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">如果</span></span></span></span></span></span></span></span></span></span></span></span></a></h4>
+<h4 style="padding-left: 30px;"><a href="https://docs.python.org/3/tutorial/controlflow.html#the-range-function"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">範圍</span></span></span></span></span></span></span></span></span></span></span></span></a></h4>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">開放</span></span></span></span></span></span></span></span></span></span></span></span></h4>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">讀</span></span></span></span></span></span></span></span></span></span></span></span></h4>
+<h4><a href="https://docs.python.org/3/tutorial/introduction.html#lists"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">清單</span></span></span></span></span></span></span></span></span></span></span></span></a></h4>
+<h4><a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">元組</span></span></span></span></span></span></span></span></span></span></span></span></a></h4>
+<h4><a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">字典</span></span></span></span></span></span></span></span></span></span></span></span></a></h4>
+<h4><a href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">功能</span></span></span></span></span></span></span></span></span></span></span></span></a></h4>
+<h4><a href="https://docs.python.org/3/tutorial/errors.html#exceptions"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">嘗試...除了</span></span></span></span></span></span></span></span></span></span></span></span></a></h4>
+<h4><a href="https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">休息時間</span></span></span></span></span></span></span></span></span></span></span></span></a></h4>
+<h4><a href="https://docs.python.org/3/tutorial/controlflow.html#pass-statements"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">曾經</span></span></span></span></span></span></span></span></span></span></span></span></a></h4>
+<h4><a href="https://docs.python.org/3/tutorial/classes.html?highlight=classes"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">類別</span></span></span></span></span></span></span></span></span></span></span></span></a></h4>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">此頁面示範如何在同一頁面下加入多個線上Ace編輯器與執行按鈕（</span></span></span></span></span></span></span></span></span></span></span></span><a href="/downloads/practice_html.txt"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">practice_html.txt</span></span></span></span></span></span></span></span></span></span></span></span></a><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">動態頁面超檔案）。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><a href="/downloads/practice_html.txt"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Practice_html.txt</span></span></span></span></span></span></span></span></span></span></span></span></a><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">動態頁面超檔案應該可以在啟動Brython時，設定分割.py檔案放入downloads/py目錄中的參考。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">也所有即將出現的對應 html 也使用 Brython 產生，然後編寫為</span></span></span></span></span></span></span></span></span></span></span></span><a href="https://docs.python.org/3/tutorial/classes.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">類別</span></span></span></span></span></span></span></span></span></span></span></span></a><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">後，在範例匯入時交叉</span></span></span></span></span></span></span></span></span></span></span></span><a href="https://docs.python.org/3/tutorial/classes.html#instance-objects"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">實例</span></span></span></span></span></span></span></span></span></span></span></span></a><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">引用。</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">&lt;!-- 啟動 Brython --&gt;</span></span></span></span></span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+&lt;腳本&gt;</span></span></span></span></span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+視窗.onload=函數(){</span></span></span></span></span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+brython({debug:1, pythonpath:['/static/','./../downloads/py/']});</span></span></span></span></span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span></span></span></span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+&lt;/&gt; 腳本</span></span></span></span></span></span></span></span></span></span></span></span></pre>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">從1累加到100：</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><button id="add1to100"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">1加到100</span></span></span></span></span></span></span></span></span></span></span></span></button></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">將 iterable 與 iterator</span></span></span></span></span></span></span></span></span></span></span></span><a href="https://home.gamer.com.tw/creationDetail.php?sn=4337438"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">相關說明</span></span></span></span></span></span></span></span></span></span></span></span></a><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">，利用 Brython 與 Ace Editor 整理頁面。</span></span></span></span></span></span></span></span></span></span></span></span></p>
 <!-- 導入 brython 程式庫 -->
 <p>
 <script src="/static/brython.js"></script>
@@ -1022,11 +1340,11 @@ doc["add1to100"].bind('click', add)
 <div id="kw_editor1" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
 <p><!-- 存擋表單開始 --></p>
-<form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
+<form><label><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">文件名稱：</span></span></span></span></span></span></span></span></span></span></span></span><input id="kw_filename" placeholder="輸入檔名" type="text"/><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">.py</span></span></span></span></span></span></span></span></span></span></span></span></label> <span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="保存"/></span></span></span></span></span></span></span></span></span></span></span></span></form>
 <p><!-- 存擋表單結束 --></p>
 <p></p>
 <p><!-- 執行與清除按鈕開始 --></p>
-<p><button id="kw_run1">Run</button> <button id="kw_show_console1">Output</button> <button id="kw_clear_console1">清除輸出區</button><button id="clear_bd1">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<p><button id="kw_run1"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">跑步</span></span></span></span></span></span></span></span></span></span></span></span></button> <button id="kw_show_console1"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">輸出</span></span></span></span></span></span></span></span></span></span></span></span></button> <button id="kw_clear_console1"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">明確輸出區</span></span></span></span></span></span></span></span></span></span></span></span></button><button id="clear_bd1"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">清晰的繪圖區</span></span></span></span></span></span></span></span></span></span></span></span></button><button onclick="window.location.reload()"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">重新載入</span></span></span></span></span></span></span></span></span></span></span></span></button></p>
 <p><!-- 執行與清除按鈕結束 --></p>
 <p></p>
 <p><!-- 程式執行 ouput 區 --></p>
@@ -1034,8 +1352,8 @@ doc["add1to100"].bind('click', add)
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div1"></div>
 <!-- editor1 結束 --><hr/><!-- ########################################## -->
-<p>從 1 累加到 100 part2:</p>
-<p><button id="add1to100part2">1 add to 100</button><button id="cango_three_gears">cango_three_gears</button><button id="bsnake">BSnake</button><button id="aitetris">AI Tetris</button><button id="threejsblock">Rotating Block</button></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">從1累加到100第2部分：</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><button id="add1to100part2"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">1加到100</span></span></span></span></span></span></span></span></span></span></span></span></button><button id="cango_three_gears"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">cango_三_齒輪</span></span></span></span></span></span></span></span></span></span></span></span></button><button id="bsnake"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">BS蛇</span></span></span></span></span></span></span></span></span></span></span></span></button><button id="aitetris"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">人工智能俄羅斯區塊鏈</span></span></span></span></span></span></span></span></span></span></span></span></button><button id="threejsblock"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">旋轉塊</span></span></span></span></span></span></span></span></span></span></span></span></button></p>
 <p><!-- 請注意, 這裡使用 Javascript 將 localStorage["kw_py_src2"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
 <p>
 <script type="text/python3">
@@ -1141,11 +1459,11 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <div id="kw_editor2" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
 <p><!-- 存擋表單開始 --></p>
-<form><label>Filename: <input id="kw_filename2" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src2', 'kw_filename2');" type="submit" value="Save"/></form>
+<form><label><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">文件名稱：</span></span></span></span></span></span></span></span></span></span></span></span><input id="kw_filename2" placeholder="輸入檔名" type="text"/><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">.py</span></span></span></span></span></span></span></span></span></span></span></span></label> <span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><input onclick="doSave('kw_py_src2', 'kw_filename2');" type="submit" value="保存"/></span></span></span></span></span></span></span></span></span></span></span></span></form>
 <p><!-- 存擋表單結束 --></p>
 <p></p>
 <p><!-- 執行與清除按鈕開始 --></p>
-<p><button id="kw_run2">Run</button> <button id="kw_show_console2">Output</button> <button id="kw_clear_console2">清除輸出區</button><button id="clear_bd2">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<p><button id="kw_run2"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">跑步</span></span></span></span></span></span></span></span></span></span></span></span></button> <button id="kw_show_console2"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">輸出</span></span></span></span></span></span></span></span></span></span></span></span></button> <button id="kw_clear_console2"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">明確輸出區</span></span></span></span></span></span></span></span></span></span></span></span></button><button id="clear_bd2"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">清晰的繪圖區</span></span></span></span></span></span></span></span></span></span></span></span></button><button onclick="window.location.reload()"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">重新載入</span></span></span></span></span></span></span></span></span></span></span></span></button></p>
 <p><!-- 執行與清除按鈕結束 --></p>
 <p></p>
 <p><!-- 程式執行 ouput 區 --></p>

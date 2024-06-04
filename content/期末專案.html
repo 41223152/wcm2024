@@ -1,0 +1,644 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>cmsimde_site</title>
+        <meta charset="utf-8">
+<meta property="head" content="H1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <!-- for Wink3 客製化關閉 -->
+        <!--
+        <link rel="stylesheet" type="text/css" href="./../cmsimde/static/winkPlayer.css" />
+        <script type="text/javascript" src="./../cmsimde/static/winkPlayer.js"></script>
+        -->
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container">
+                <div class="row align-items-center">
+                <h1>41223152 wcm2024</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">41223152 wcm2024</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">SMap</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li><a href='關於.html'>關於</a><li><a href='公分西德.html'>公分西德</a><li><a href='期末專案.html'>期末專案</a><li class='has-children'><a href='工作.html'>工作</a><ul class='dropdown'><li><a href='W2.html'>W2</a><li><a href='W3.html'>W3</a><li><a href='W4.html'>W4</a><li><a href='W5.html'>W5</a><li><a href='W6.html'>W6</a><li><a href='W8.html'>W8</a><li><a href='W11.html'>W11</a><li><a href='W13.html'>W13</a></li></ul><li><a href='Replit.html'>Replit</a><li class='has-children'><a href='課程期中整理.html'>課程期中整理</a><ul class='dropdown'><li><a href='網頁式內容管理.html'>網頁式內容管理</a><li><a href='Python 程式系統.html'>Python 程式系統</a><li><a href='網頁上的 IDE.html'>網頁上的 IDE</a><li><a href='AI 工具.html'>AI 工具</a><li><a href='實作練習問題.html'>實作練習問題</a></li></ul><li><a href='布萊通.html'>布萊通</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+
+        </header>
+    <div id="tipue_search_content">公分西德 << <a href='公分西德.html'>Previous</a> <a href='工作.html'>Next</a> >> 工作<br /><h1>期末專案</h1>
+<h4><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">影片連結</span></span></span></span></span></span></strong></h4>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><a href="./../downloads/連接4 - Google Chrome 2024-06-04 20-59-17.mp4"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">/downloads/連結4 - Google Chrome 2024-06-04 20-59-17.mp4</span></span></span></span></span></span></span></span></span></span></a> </span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"></span></span></p>
+<h4><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">如何詢問chatgpt</span></span></span></span></span></span></span></span></strong></h4>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Q：幫我用python製作四子棋的小遊戲並用網頁方式轉發</span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">問：我使用網頁方式發送192.168.56.1是我的地址</span></span></span></span></span></span></span></span></span></span></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">1.設定Flask項目</span></span></span></span></span></span></span></span></span></span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">連接4/</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    ├──靜態/</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    │ ├── 樣式.css</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    │ └── 腳本.js</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    ├── 模板/</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    │ └──index.html</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    └── 應用程式.py</span></span></span></span></span></span></span></span><span></span>
+</pre>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">2.編寫Flask( </span></span></span></span></span></span></span></span><code>app.py</code><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">)</span></span></span></span></span></span></span></span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">從燒瓶導入燒瓶，渲染模板，請求，jsonify</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+應用程式=燒瓶（__名稱__）</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+行計數 = 6</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+COLUMN_COUNT = 7</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+def create_board():</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    返回 [[0 for _ in range(COLUMN_COUNT)] for _ in range(ROW_COUNT)]</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+板 = create_board()</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+def check_winner(棋盤, 棋子):</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    #檢查水平位置</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    對於範圍內的 c (COLUMN_COUNT-3)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        對於範圍內的r (ROW_COUNT)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            if all([board[r][c+i] == a for i in range(4)]):</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                回傳真</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    # 檢查垂直位置</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    對於範圍內的 c (COLUMN_COUNT)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        對於範圍內的r (ROW_COUNT-3)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            if all([board[r+i][c] == a for i in range(4)]):</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                回傳真</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    #檢查傾向的對角線</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    對於範圍內的 c (COLUMN_COUNT-3)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        對於範圍內的r (ROW_COUNT-3)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            if all([board[r+i][c+i] == a for i in range(4)]):</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                回傳真</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    #檢查負斜率的對角線</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    對於範圍內的 c (COLUMN_COUNT-3)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        對於範圍（3，ROW_COUNT）中的r：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            if all([板[ri][c+i] == a for i in range(4)]):</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                回傳真</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    回傳錯誤</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+@app.route('/')</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+定義指數（）：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    返回 render_template('index.html')</span></span></span></span></span></span></span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+@app.route('/move', Method=['POST'])</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+定義移動（）：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    資料 = request.get_json()</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    列 = 資料['列']</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    件 = 數據['件']</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    對於範圍內的r (ROW_COUNT)：</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        如果板[r][列] == 0:</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            板[r][col] = 一塊</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            if check_winner(棋盤, 棋子):</span></span></span></span></span></span></span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                返回 jsonify({'winner':piece})</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            休息</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    返回 jsonify({'board': 板})</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+如果 __name__ == '__main__':</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    app.run（主機='0.0.0.0'，連接埠=5000，調試=True）</span></span><span></span>
+</pre>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">3.編寫前端HTML ( </span></span><code>templates/index.html</code><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">)</span></span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">&lt;!DOCTYPE html&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+&lt;html lang="en"&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+&lt;頭&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    &lt;元字元集=“UTF-8”&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    &lt;meta name =“viewport”content =“width = device-width，initial-scale = 1.0”&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    &lt;標題&gt;連接4&lt;/標題&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    &lt;link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+&lt;/頭&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+&lt;正文&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    &lt;h1&gt;連線 4&lt;/h1&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    &lt;div id="board"&gt;&lt;/div&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    &lt;script src="{{ url_for('static', filename='script.js') }}"&gt;&lt;/script&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+&lt;/正文&gt;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+&lt;/html&gt;</span></span><span></span>
+</pre>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">4.新增CSS樣式( </span></span><code>static/style.css</code><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">)</span></span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">身體 {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    顯示：柔性；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    彎曲方向：列；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    對齊項目：居中；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    字體系列：Arial、無襯線字體；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+＃木板 {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    顯示：網格；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    網格模板列：重複（7、50px）；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    網格間隙：5px；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+。</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    寬度：50px；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    高度：50px；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    背景顏色：淺藍色；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    顯示：柔性；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    對齊項目：居中；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    調整內容：居中；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    遊標：指針；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+。</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    背景顏色：紅色；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+。</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    背景顏色：黃色；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+</pre>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">5.新增JavaScript邏輯 ( </span></span><code>static/script.js</code><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">)</span></span></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">const boardElement = document.getElementById('board');<span></span>
+let board = Array(6).fill().map(() =&gt; Array(7).fill(0));<span></span>
+let currentPlayer = 1;<span></span>
+<span></span>
+function createBoard() {<span></span>
+    boardElement.innerHTML = '';<span></span>
+    for (let r = 0; r &lt; 6; r++) {<span></span>
+        for (let c = 0; c &lt; 7; c++) {<span></span>
+            const cell = document.createElement('div');<span></span>
+            cell.classList.add('cell');<span></span>
+            cell.dataset.row = r;<span></span>
+            cell.dataset.col = c;<span></span>
+            cell.addEventListener('click', handleClick);<span></span>
+            boardElement.appendChild(cell);<span></span>
+        }<span></span>
+    }<span></span>
+}<span></span>
+<span></span>
+function handleClick(event) {<span></span>
+    const col = event.target.dataset.col;<span></span>
+    fetch('/move', {<span></span>
+        method: 'POST',<span></span>
+        headers: { 'Content-Type': 'application/json' },<span></span>
+        body: JSON.stringify({ col: parseInt(col), piece: currentPlayer })<span></span>
+    })<span></span>
+    .then(response =&gt; response.json())<span></span>
+    .then(data =&gt; {<span></span>
+        if (data.winner) {<span></span>
+            alert(`Player ${data.winner} wins!`);<span></span>
+        }<span></span>
+        board = data.board;<span></span>
+        updateBoard();<span></span>
+        currentPlayer = currentPlayer === 1 ? 2 : 1;<span></span>
+    });<span></span>
+}<span></span>
+<span></span>
+function updateBoard() {<span></span>
+    for (let r = 0; r &lt; 6; r++) {<span></span>
+        for (let c = 0; c &lt; 7; c++) {<span></span>
+            const cell = document.querySelector(`.cell[data-row="${r}"][data-col="${c}"]`);<span></span>
+            cell.classList.remove('red', 'yellow');<span></span>
+            if (board[r][c] === 1) {<span></span>
+                cell.classList.add('red');<span></span>
+            } else if (board[r][c] === 2) {<span></span>
+                cell.classList.add('yellow');<span></span>
+            }<span></span>
+        }<span></span>
+    }<span></span>
+}<span></span>
+<span></span>
+createBoard();<span></span>
+</pre>
+<p>Q:我要在遊戲結束後,按下鍵盤空白鍵可以讓遊戲重新開始,回到一開始介面,請給我完整版的</p>
+<p>1.app.py</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">from flask import Flask, render_template, request, jsonify<span></span>
+<span></span>
+app = Flask(__name__)<span></span>
+<span></span>
+ROW_COUNT = 6<span></span>
+COLUMN_COUNT = 7<span></span>
+<span></span>
+def create_board():<span></span>
+    return [[0 for _ in range(COLUMN_COUNT)] for _ in range(ROW_COUNT)]<span></span>
+<span></span>
+board = create_board()<span></span>
+<span></span>
+def check_winner(board, piece):<span></span>
+    # Check horizontal locations<span></span>
+    for c in range(COLUMN_COUNT-3):<span></span>
+        for r in range(ROW_COUNT):<span></span>
+            if all([board[r][c+i] == piece for i in range(4)]):<span></span>
+                return True<span></span>
+<span></span>
+    # Check vertical locations<span></span>
+    for c in range(COLUMN_COUNT):<span></span>
+        for r in range(ROW_COUNT-3):<span></span>
+            if all([board[r+i][c] == piece for i in range(4)]):<span></span>
+                return True<span></span>
+<span></span>
+    # Check positively sloped diagonals<span></span>
+    for c in range(COLUMN_COUNT-3):<span></span>
+        for r in range(ROW_COUNT-3):<span></span>
+            if all([board[r+i][c+i] == piece for i in range(4)]):<span></span>
+                return True<span></span>
+<span></span>
+    # Check negatively sloped diagonals<span></span>
+    for c in range(COLUMN_COUNT-3):<span></span>
+        for r in range(3, ROW_COUNT):<span></span>
+            if all([board[r-i][c+i] == piece for i in range(4)]):<span></span>
+                return True<span></span>
+    return False<span></span>
+<span></span>
+@app.route('/')<span></span>
+def index():<span></span>
+    return render_template('index.html')<span></span>
+<span></span>
+@app.route('/move', methods=['POST'])<span></span>
+def move():<span></span>
+    data = request.get_json()<span></span>
+    col = data['col']<span></span>
+    piece = data['piece']<span></span>
+    for r in range(ROW_COUNT-1, -1, -1):<span></span>
+        if board[r][col] == 0:<span></span>
+            board[r][col] = piece<span></span>
+            if check_winner(board, piece):<span></span>
+                return jsonify({'winner': piece})<span></span>
+            break<span></span>
+    return jsonify({'board': board})<span></span>
+<span></span>
+@app.route('/reset', methods=['POST'])<span></span>
+def reset():<span></span>
+    global board<span></span>
+    board = create_board()<span></span>
+    return jsonify({'board': board})<span></span>
+<span></span>
+if __name__ == '__main__':<span></span>
+    app.run(host='0.0.0.0', port=5000, debug=True)<span></span>
+</pre>
+<div class="dark bg-gray-950 rounded-md border-[0.5px] border-token-border-medium">
+<div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>2.templates/index.html<br/><br/></span></div>
+<div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md">
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">&lt;!DOCTYPE html&gt;<span></span>
+&lt;html lang="en"&gt;<span></span>
+&lt;head&gt;<span></span>
+    &lt;meta charset="UTF-8"&gt;<span></span>
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<span></span>
+    &lt;title&gt;Connect 4&lt;/title&gt;<span></span>
+    &lt;link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"&gt;<span></span>
+&lt;/head&gt;<span></span>
+&lt;body&gt;<span></span>
+    &lt;h1&gt;Connect 4&lt;/h1&gt;<span></span>
+    &lt;div id="board"&gt;&lt;/div&gt;<span></span>
+    &lt;script src="{{ url_for('static', filename='script.js') }}"&gt;&lt;/script&gt;<span></span>
+&lt;/body&gt;<span></span>
+&lt;/html&gt;<span></span>
+</pre>
+<span>3.static/style.css</span></div>
+<div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md">
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">body {<span></span>
+    display: flex;<span></span>
+    flex-direction: column;<span></span>
+    align-items: center;<span></span>
+    font-family: Arial, sans-serif;<span></span>
+}<span></span>
+<span></span>
+#board {<span></span>
+    display: grid;<span></span>
+    grid-template-columns: repeat(7, 50px);<span></span>
+    grid-gap: 5px;<span></span>
+}<span></span>
+<span></span>
+.cell {<span></span>
+    width: 50px;<span></span>
+    height: 50px;<span></span>
+    background-color: lightblue;<span></span>
+    display: flex;<span></span>
+    align-items: center;<span></span>
+    justify-content: center;<span></span>
+    cursor: pointer;<span></span>
+}<span></span>
+<span></span>
+.red {<span></span>
+    background-color: red;<span></span>
+}<span></span>
+<span></span>
+.yellow {<span></span>
+    background-color: yellow;<span></span>
+}<span></span>
+</pre>
+<span>4.static/script.js</span></div>
+<div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md">
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">const boardElement = document.getElementById('board');<span></span>
+let board = Array(6).fill().map(() =&gt; Array(7).fill(0));<span></span>
+let currentPlayer = 1;<span></span>
+let gameEnded = false; // 增加一個標誌來追蹤遊戲是否已經結束<span></span>
+<span></span>
+function createBoard() {<span></span>
+    boardElement.innerHTML = '';<span></span>
+    for (let r = 0; r &lt; 6; r++) {<span></span>
+        for (let c = 0; c &lt; 7; c++) {<span></span>
+            const cell = document.createElement('div');<span></span>
+            cell.classList.add('cell');<span></span>
+            cell.dataset.row = r;<span></span>
+            cell.dataset.col = c;<span></span>
+            cell.addEventListener('click', handleClick);<span></span>
+            boardElement.appendChild(cell);<span></span>
+        }<span></span>
+    }<span></span>
+}<span></span>
+<span></span>
+function handleClick(event) {<span></span>
+    if (gameEnded) return; // 如果遊戲已經結束，不再響應點擊事件<span></span>
+<span></span>
+    const col = event.target.dataset.col;<span></span>
+    fetch('/move', {<span></span>
+        method: 'POST',<span></span>
+        headers: { 'Content-Type': 'application/json' },<span></span>
+        body: JSON.stringify({ col: parseInt(col), piece: currentPlayer })<span></span>
+    })<span></span>
+    .then(response =&gt; response.json())<span></span>
+    .then(data =&gt; {<span></span>
+        if (data.winner) {<span></span>
+            alert(`Player ${data.winner} wins!`);<span></span>
+            gameEnded = true; // 設置標誌表示遊戲已經結束<span></span>
+        }<span></span>
+        board = data.board;<span></span>
+        updateBoard();<span></span>
+        currentPlayer = currentPlayer === 1 ? 2 : 1;<span></span>
+    });<span></span>
+}<span></span>
+<span></span>
+function updateBoard() {<span></span>
+    for (let r = 0; r &lt; 6; r++) {<span></span>
+        for (let c = 0; c &lt; 7; c++) {<span></span>
+            const cell = document.querySelector(`.cell[data-row="${r}"][data-col="${c}"]`);<span></span>
+            cell.classList.remove('red', 'yellow');<span></span>
+            if (board[r][c] === 1) {<span></span>
+                cell.classList.add('red');<span></span>
+            } else if (board[r][c] === 2) {<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                cell.classList.add('黃色');</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+函數重置遊戲（）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    獲取（'/重置'，{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        方法：“發布”</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    })</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    .then(回應=&gt;response.json())</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    .then(數據 =&gt; {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        板=數據.板;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        更新板（）；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        當前玩家= 1；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        遊戲結束=假； // 重置標誌表示遊戲尚未結束</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    });</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+document.addEventListener('keydown', 事件 =&gt; {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    if (event.code === '空間') {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        重置遊戲（）；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+});</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+創建板（）；</span></span><span></span>
+</pre>
+<span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Q：我按了鼠標左鍵卻沒有開始</span></span></span></div>
+<div class="flex items-center relative text-token-text-secondary bg-token-main-surface-secondary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span><span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">1.</span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">更新</span></span><code>static/script.js</code>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">const boardElement = document.getElementById('board');</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+讓板 = Array(6).fill().map(() =&gt; Array(7).fill(0));</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+讓當前玩家= 1；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+讓遊戲結束= false；</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+函數創建板（）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    boardElement.innerHTML = '';</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    for (設 r = 0; r &lt; 6; r++) {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        for (令 c = 0; c &lt; 7; c++) {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            const cell = document.createElement('div');</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            cell.classList.add('cell');</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            cell.dataset.row = r;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            cell.dataset.col = c;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            cell.addEventListener('click',handleClick);</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            boardElement.appendChild(單元格);</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+函數handleClick（事件）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    如果（遊戲結束）返回；</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    const col = event.target.dataset.col;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    獲取（'/移動'，{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        方法：'POST'，</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        headers: { 'Content-Type': 'application/json' },</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        body: JSON.stringify({ col: parseInt(col),piece: currentPlayer })</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    })</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    .then(回應=&gt;response.json())</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    .then(數據 =&gt; {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        如果（數據.獲勝者）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            Alert(`玩家 ${data.winner} 獲勝！`);</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            遊戲結束=真；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        板=數據.板;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        更新板（）；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        目前玩家 = 當前玩家 === 1 ？ 2：1；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    });</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+函數 updateBoard() {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    for (設 r = 0; r &lt; 6; r++) {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        for (令 c = 0; c &lt; 7; c++) {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            const cell = document.querySelector(`.cell[data-row="${r}"][data-col="${c}"]`);</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            cell.classList.remove('紅色', '黃色');</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            if (板[r][c] === 1) {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                cell.classList.add('紅色');</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            } else if (板[r][c] === 2) {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                cell.classList.add('黃色');</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+            }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+函數重置遊戲（）{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    獲取（'/重置'，{</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        方法：“發布”</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    })</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    .then(回應=&gt;response.json())</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    .then(數據 =&gt; {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        板=數據.板;</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        更新板（）；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        當前玩家= 1；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        遊戲結束=假；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    });</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+document.addEventListener('keydown', 事件 =&gt; {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    if (event.code === '空間') {</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        重置遊戲（）；</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    }</span></span><span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+});</span></span><span></span>
+<span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+創建板（）；</span></span><span></span>
+</pre>
+<p><br/><br/></p>
+</div>
+</div><br />公分西德 << <a href='公分西德.html'>Previous</a> <a href='工作.html'>Next</a> >> 工作</div>
+
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
