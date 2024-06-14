@@ -7,7 +7,7 @@
 &lt;p&gt;將引入無製表符號的兩行資料的原始文件，利用Python轉為csv文件格式：&lt;/p&gt;
 &lt;p&gt;處理方式：逐列空白分割，若無資料加入選項卡符號，若有資料則將空白換為選項卡符號，然後印出（也可直接文件）&lt;/p&gt;
 &lt;p&gt;以下方案則可讀取w14點名csv文件，並從期中自評表csv文件中除剃已退選者的資料：&lt;/p&gt;
-&lt;p&gt;處理方式：利用 csv 模組讀取各列數據，以 w14 留下的學員學號為基準，手持讀取期中所需數據時，只需接下來 w14 名單中的學員數據&lt;/p&gt;</content><category term="w14"></category><category term="網誌編寫"></category></entry><entry><title>2024 w13 課程</title><link href="./2024-Spring-w13-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:13:00+08:00</published><updated>2024-06-14T08:57:59+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w13-blog-tutorial.html</id><summary type="html">&lt;p&gt;從單機猜測數位遊戲與AI應用談起&lt;/p&gt;
+&lt;p&gt;處理方式：利用 csv 模組讀取各列數據，以 w14 留下的學員學號為基準，手持讀取期中所需數據時，只需接下來 w14 名單中的學員數據&lt;/p&gt;</content><category term="w14"></category><category term="網誌編寫"></category></entry><entry><title>2024 w13 課程</title><link href="./2024-Spring-w13-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:13:00+08:00</published><updated>2024-06-14T09:05:38+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w13-blog-tutorial.html</id><summary type="html">&lt;p&gt;從單機猜測數位遊戲與AI應用談起&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;從單機猜測數位遊戲與AI應用談起&lt;/p&gt;
 
 
@@ -20,7 +20,23 @@
 &lt;p&gt;具有管理員模式，可以重新啟動伺服器。
 可以讓參賽者們登陸Github、Gmail或其他支援Oauth2登錄協議的帳號登錄。
 加入資料庫，儲存參賽者的得分資料、歷史記錄並提供排行榜等功能。
-其他可加入多人線上參與競技或進行同步對話功能，或納入其他專業相關的良好設計功能。&lt;/p&gt;</content><category term="w13"></category><category term="網誌編寫"></category></entry><entry><title>2024 w6 課程</title><link href="./2024-Spring-w6-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:06:00+08:00</published><updated>2024-06-14T08:43:44+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w6-blog-tutorial.html</id><summary type="html">&lt;p&gt;如何透過與 ChatGPT 的對話, 了解有關 git 在不同專業領域的應用方法.&lt;/p&gt;
+其他可加入多人線上參與競技或進行同步對話功能，或納入其他專業相關的良好設計功能。&lt;/p&gt;
+&lt;h1&gt;使用SSH客戶端終端登錄&lt;/h1&gt;
+&lt;p&gt;需要一個SSH客戶端來連接到主機。&lt;/p&gt;
+&lt;p&gt;Windows 可以使用 PuTTY 或 Windows Terminal。&lt;/p&gt;
+&lt;p&gt;開啟PuTTY，輸入stud.cycu.org作為主機名，並輸入使用者名稱和初始密碼。&lt;/p&gt;
+&lt;p&gt;macOS 和 Linux 開啟終端機（Terminal）。&lt;/p&gt;
+&lt;p&gt;輸入以下命令：&lt;/p&gt;
+&lt;p&gt;ssh 學號@stud.cycu.org 例如，如果學號是 s1234567，則輸入：&lt;/p&gt;
+&lt;p&gt;ssh s1234567@stud.cycu.org&lt;/p&gt;
+&lt;h1&gt;修改初始密碼&lt;/h1&gt;
+&lt;p&gt;首次修改登入後，應立即初始密碼。&lt;/p&gt;
+&lt;p&gt;passwd 系統會提示輸入目前密碼，然後輸入並確認新密碼。&lt;/p&gt;
+&lt;h1&gt;保證資料安全&lt;/h1&gt;
+&lt;p&gt;提醒學員注意資料備份與安全：&lt;/p&gt;
+&lt;p&gt;定期備份重要資料。&lt;/p&gt;
+&lt;p&gt;不要將敏感資訊儲存在公共目錄中。&lt;/p&gt;
+&lt;p&gt;使用安全的密碼和兩步驟驗證（如果可能）。&lt;/p&gt;</content><category term="w13"></category><category term="網誌編寫"></category></entry><entry><title>2024 w6 課程</title><link href="./2024-Spring-w6-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:06:00+08:00</published><updated>2024-06-14T08:43:44+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w6-blog-tutorial.html</id><summary type="html">&lt;p&gt;如何透過與 ChatGPT 的對話, 了解有關 git 在不同專業領域的應用方法.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;如何透過與 ChatGPT 的對話, 了解有關 git 在不同專業領域的應用方法.&lt;/p&gt;
 
 
