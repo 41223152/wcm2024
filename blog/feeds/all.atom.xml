@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>網際內容管理系統</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2024-06-14T15:14:00+08:00</updated><entry><title>2024 w14 課程</title><link href="./2024-Spring-w14-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:14:00+08:00</published><updated>2024-06-14T09:02:29+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w14-blog-tutorial.html</id><summary type="html">&lt;p&gt;有關可攜方案系統的批次文件說明&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>網際內容管理系統</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2024-06-14T15:14:00+08:00</updated><entry><title>2024 w14 課程</title><link href="./2024-Spring-w14-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:14:00+08:00</published><updated>2024-06-14T09:17:20+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w14-blog-tutorial.html</id><summary type="html">&lt;p&gt;有關可攜方案系統的批次文件說明&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;有關可攜方案系統的批次文件說明&lt;/p&gt;
 
 
@@ -7,7 +7,7 @@
 &lt;p&gt;將引入無製表符號的兩行資料的原始文件，利用Python轉為csv文件格式：&lt;/p&gt;
 &lt;p&gt;處理方式：逐列空白分割，若無資料加入選項卡符號，若有資料則將空白換為選項卡符號，然後印出（也可直接文件）&lt;/p&gt;
 &lt;p&gt;以下方案則可讀取w14點名csv文件，並從期中自評表csv文件中除剃已退選者的資料：&lt;/p&gt;
-&lt;p&gt;處理方式：利用 csv 模組讀取各列數據，以 w14 留下的學員學號為基準，手持讀取期中所需數據時，只需接下來 w14 名單中的學員數據&lt;/p&gt;</content><category term="w14"></category><category term="網誌編寫"></category></entry><entry><title>2024 w13 課程</title><link href="./2024-Spring-w13-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:13:00+08:00</published><updated>2024-06-14T09:05:38+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w13-blog-tutorial.html</id><summary type="html">&lt;p&gt;從單機猜測數位遊戲與AI應用談起&lt;/p&gt;
+&lt;p&gt;處理方式：利用 csv 模組讀取各列數據，以 w14 留下的學員學號為基準，手持讀取期中所需數據時，只需接下來 w14 名單中的學員數據&lt;/p&gt;</content><category term="w14"></category><category term="網誌編寫"></category></entry><entry><title>2024 w13 課程</title><link href="./2024-Spring-w13-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:13:00+08:00</published><updated>2024-06-14T09:17:20+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w13-blog-tutorial.html</id><summary type="html">&lt;p&gt;從單機猜測數位遊戲與AI應用談起&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;從單機猜測數位遊戲與AI應用談起&lt;/p&gt;
 
 
@@ -36,7 +36,13 @@
 &lt;p&gt;提醒學員注意資料備份與安全：&lt;/p&gt;
 &lt;p&gt;定期備份重要資料。&lt;/p&gt;
 &lt;p&gt;不要將敏感資訊儲存在公共目錄中。&lt;/p&gt;
-&lt;p&gt;使用安全的密碼和兩步驟驗證（如果可能）。&lt;/p&gt;</content><category term="w13"></category><category term="網誌編寫"></category></entry><entry><title>2024 w6 課程</title><link href="./2024-Spring-w6-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:06:00+08:00</published><updated>2024-06-14T08:43:44+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w6-blog-tutorial.html</id><summary type="html">&lt;p&gt;如何透過與 ChatGPT 的對話, 了解有關 git 在不同專業領域的應用方法.&lt;/p&gt;
+&lt;p&gt;使用安全的密碼和兩步驟驗證（如果可能）。&lt;/p&gt;</content><category term="w13"></category><category term="網誌編寫"></category></entry><entry><title>2024 w8 課程</title><link href="./2024-Spring-w8-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:08:00+08:00</published><updated>2024-06-14T09:23:49+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w8-blog-tutorial.html</id><summary type="html">&lt;p&gt;從教育的本質看網際內容管理課程的內容要點.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;從教育的本質看網際內容管理課程的內容要點.&lt;/p&gt;
+
+
+&lt;h1&gt;內容要點&lt;/h1&gt;
+&lt;p&gt;1.wcm2024 1a w8 從教育的本質看課程內容
+2.wcm2024 1a w8 說明如何將影片嵌入網頁&lt;/p&gt;</content><category term="w8"></category><category term="網誌編寫"></category></entry><entry><title>2024 w6 課程</title><link href="./2024-Spring-w6-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:06:00+08:00</published><updated>2024-06-14T09:17:20+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w6-blog-tutorial.html</id><summary type="html">&lt;p&gt;如何透過與 ChatGPT 的對話, 了解有關 git 在不同專業領域的應用方法.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;如何透過與 ChatGPT 的對話, 了解有關 git 在不同專業領域的應用方法.&lt;/p&gt;
 
 
@@ -93,7 +99,7 @@
 &lt;p&gt;最後, 若要讓使用者跨網路存取 Windows 操作系統上的倉儲, 可以根據這裡的說明, 啟動伺服器:&lt;/p&gt;
 &lt;p&gt;git daemon --reuseaddr --base-path=. --export-all --verbose&lt;/p&gt;
 &lt;p&gt;然後利用 C:\tmp\repository&amp;gt;git clone git://localhost/repo1 repo002 取下倉儲內容, 其中的 localhost 可以使用外部 IP 或對應的網路符號名稱.&lt;/p&gt;
-&lt;p&gt;若要在 Windows 環境打造一個類似 Github 的網際環境, 可以採用 https://github.com/gogs/gogs, 其中包括網際資料庫 PostgreSQL 伺服器或 SQLite 的應用.&lt;/p&gt;</content><category term="w6"></category><category term="網誌編寫"></category></entry><entry><title>2024 w5 課程</title><link href="./2024-Spring-w5-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:05:00+08:00</published><updated>2024-06-14T08:30:00+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w5-blog-tutorial.html</id><summary type="html">&lt;p&gt;以 iframe 嵌入先前的教學影片, 並摘要各影片內容&lt;/p&gt;
+&lt;p&gt;若要在 Windows 環境打造一個類似 Github 的網際環境, 可以採用 https://github.com/gogs/gogs, 其中包括網際資料庫 PostgreSQL 伺服器或 SQLite 的應用.&lt;/p&gt;</content><category term="w6"></category><category term="網誌編寫"></category></entry><entry><title>2024 w5 課程</title><link href="./2024-Spring-w5-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:05:00+08:00</published><updated>2024-06-14T09:17:20+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w5-blog-tutorial.html</id><summary type="html">&lt;p&gt;以 iframe 嵌入先前的教學影片, 並摘要各影片內容&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;以 iframe 嵌入先前的教學影片, 並摘要各影片內容&lt;/p&gt;
 
 
@@ -116,7 +122,7 @@
 在自架主機上能否直接與 CoppeliaSim 或 Webots 的模擬場景互動
 與 Web-based Solvespace 進行整合
 將 Range3 作為後端 FEM 運算模組
-納入 Pyslvs-UI 的演算模組架構&lt;/p&gt;</content><category term="w5"></category><category term="網誌編寫"></category></entry><entry><title>2024 w4 課程</title><link href="./2024-Spring-w4-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:04:00+08:00</published><updated>2024-06-14T08:21:48+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w4-blog-tutorial.html</id><summary type="html">&lt;p&gt;介紹 git 與 cmsimde 的相關用法&lt;/p&gt;
+納入 Pyslvs-UI 的演算模組架構&lt;/p&gt;</content><category term="w5"></category><category term="網誌編寫"></category></entry><entry><title>2024 w4 課程</title><link href="./2024-Spring-w4-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:04:00+08:00</published><updated>2024-06-14T09:17:20+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w4-blog-tutorial.html</id><summary type="html">&lt;p&gt;介紹 git 與 cmsimde 的相關用法&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;介紹 git 與 cmsimde 的相關用法&lt;/p&gt;
 
 
@@ -129,7 +135,7 @@
 &lt;p&gt;而 Host 的設定與 Windows putty 中的 session 名稱相同, 配合使用的 ssh 連線指令將會是:&lt;/p&gt;
 &lt;p&gt;git clone --recurse-submodules git@github.com:mdewcm2024/分組倉儲名稱.git&lt;/p&gt;
 &lt;p&gt;當使用者完成 /home/runner/.ssh 目錄中的 id_rsa 與 config 建立後, Replit 會定期刪除免費用戶的 .ssh 目錄, 因此使用者必須將此兩個檔案存至隨身碟, 並在需要對分組倉儲改版時, 啟動分組倉儲的動態網站, 將隨身碟中的 id_rsa 與 config 檔案, upload 到分組倉儲的 downloads 目錄後, 再利用 ssh.py 的執行, 將 id_rsa 與 config 移動到 /home/runner/.ssh 目錄中. 也就是執行:&lt;/p&gt;
-&lt;p&gt;python3 ssh.py&lt;/p&gt;</content><category term="w4"></category><category term="網誌編寫"></category></entry><entry><title>2024 w3 課程</title><link href="./2024-Spring-w3-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:03:00+08:00</published><updated>2024-06-14T08:07:10+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w3-blog-tutorial.html</id><summary type="html">&lt;p&gt;Replit, Github Codespaces, Gitpod 之外, 還介紹如何利用可攜系統維護個人與分組網站.&lt;/p&gt;
+&lt;p&gt;python3 ssh.py&lt;/p&gt;</content><category term="w4"></category><category term="網誌編寫"></category></entry><entry><title>2024 w3 課程</title><link href="./2024-Spring-w3-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:03:00+08:00</published><updated>2024-06-14T09:17:20+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w3-blog-tutorial.html</id><summary type="html">&lt;p&gt;Replit, Github Codespaces, Gitpod 之外, 還介紹如何利用可攜系統維護個人與分組網站.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;Replit, Github Codespaces, Gitpod 之外, 還介紹如何利用可攜系統維護個人與分組網站.&lt;/p&gt;
 
 
@@ -168,7 +174,7 @@
 &lt;p&gt;Wink 官方網站: https://www.debugmode.com/wink.html&lt;/p&gt;
 &lt;p&gt;Wink 錄製 mp4 操作影片, 可以與 Sharex 共用 ffmpeg.exe.&lt;/p&gt;
 &lt;p&gt;Sharex 可用於電腦畫面截圖, 也可以錄製電腦連續操作影片, 而 Wink 則可取電腦操作過程的關鍵影格, 加上文字說明標籤後, 製作操作流程示範影片.&lt;/p&gt;
-&lt;p&gt;下載 wink3.7z (需要密碼)&lt;/p&gt;</content><category term="w3"></category><category term="網誌編寫"></category></entry><entry><title>2024 w2 課程</title><link href="./2024-Spring-w2-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:02:00+08:00</published><updated>2024-06-14T08:10:07+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w2-blog-tutorial.html</id><summary type="html">&lt;p&gt;確認各學員是否完成 Github 中個人倉儲與網站的建立, 並且除了 Replit 還導入利用 Github Codespaces 維護個人與分組網站.&lt;/p&gt;
+&lt;p&gt;下載 wink3.7z (需要密碼)&lt;/p&gt;</content><category term="w3"></category><category term="網誌編寫"></category></entry><entry><title>2024 w2 課程</title><link href="./2024-Spring-w2-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:02:00+08:00</published><updated>2024-06-14T09:17:20+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w2-blog-tutorial.html</id><summary type="html">&lt;p&gt;確認各學員是否完成 Github 中個人倉儲與網站的建立, 並且除了 Replit 還導入利用 Github Codespaces 維護個人與分組網站.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;確認各學員是否完成 Github 中個人倉儲與網站的建立, 並且除了 Replit 還導入利用 Github Codespaces 維護個人與分組網站.&lt;/p&gt;
 
 
@@ -190,7 +196,7 @@
 &lt;p&gt;這是靜態網站&lt;/p&gt;
 &lt;p&gt;即可編輯網站&lt;/p&gt;
 &lt;h1&gt;利用 Github Classroom 建立分組網站&lt;/h1&gt;
-&lt;p&gt;在 mdewcm2024 帳號下, 期中分組作業名稱為 1a, 若第一組組長建立 Team 名稱為 midag1, 則分組倉儲名稱將為 1a-midag1, 需要如此命名作業與分組倉儲名稱的原因是, 在 Github Classroom 同一個 organization 名稱下 (即 wcm2024), 各班作業名稱必須有所區別, 而且各分組 Team 名稱也不能相同.&lt;/p&gt;</content><category term="w2"></category><category term="網誌編寫"></category></entry><entry><title>2024 w1 課程</title><link href="./2024-Spring-w1.-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:01:00+08:00</published><updated>2024-06-14T09:08:45+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w1.-blog-tutorial.html</id><summary type="html">&lt;p&gt;網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
+&lt;p&gt;在 mdewcm2024 帳號下, 期中分組作業名稱為 1a, 若第一組組長建立 Team 名稱為 midag1, 則分組倉儲名稱將為 1a-midag1, 需要如此命名作業與分組倉儲名稱的原因是, 在 Github Classroom 同一個 organization 名稱下 (即 wcm2024), 各班作業名稱必須有所區別, 而且各分組 Team 名稱也不能相同.&lt;/p&gt;</content><category term="w2"></category><category term="網誌編寫"></category></entry><entry><title>2024 w1 課程</title><link href="./2024-Spring-w1.-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:01:00+08:00</published><updated>2024-06-14T09:17:20+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w1.-blog-tutorial.html</id><summary type="html">&lt;p&gt;網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
 
 
@@ -200,13 +206,7 @@
 &lt;p&gt;建立 Github 帳號, 主要用來建立並維護個人的課程倉儲與網站.&lt;/p&gt;
 &lt;h1&gt;建立個人課程網站&lt;/h1&gt;
 &lt;p&gt;網際內容管理的個人課程網站名稱為 wcm2024, 請先登入 Github 後, 連接至  &lt;a href="https://github.com/mdecycu/cmsimde_site"&gt;1&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;以此倉儲作為 Template 建立個人的 wcm2024 倉儲, 並將倉儲主分支設定 Github Pages 後, 檢查是否已經可以連線到個人的課程網頁.&lt;/p&gt;</content><category term="w1"></category><category term="網誌編寫"></category></entry><entry><title>2024 w8 課程</title><link href="./2024-Spring-w8-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:00:00+08:00</published><updated>2024-06-14T08:47:12+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w8-blog-tutorial.html</id><summary type="html">&lt;p&gt;從教育的本質看網際內容管理課程的內容要點.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;從教育的本質看網際內容管理課程的內容要點.&lt;/p&gt;
-
-
-&lt;h1&gt;內容要點&lt;/h1&gt;
-&lt;p&gt;1.wcm2024 1a w8 從教育的本質看課程內容
-2.wcm2024 1a w8 說明如何將影片嵌入網頁&lt;/p&gt;</content><category term="w8"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程</title><link href="./2024-Spring-w1-blog-tutorial.html" rel="alternate"></link><published>2024-02-18T11:00:00+08:00</published><updated>2024-06-14T07:08:31+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-02-18:./2024-Spring-w1-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
+&lt;p&gt;以此倉儲作為 Template 建立個人的 wcm2024 倉儲, 並將倉儲主分支設定 Github Pages 後, 檢查是否已經可以連線到個人的課程網頁.&lt;/p&gt;</content><category term="w1"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程</title><link href="./2024-Spring-w1-blog-tutorial.html" rel="alternate"></link><published>2024-02-18T11:00:00+08:00</published><updated>2024-06-14T09:17:20+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-02-18:./2024-Spring-w1-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
 
 
