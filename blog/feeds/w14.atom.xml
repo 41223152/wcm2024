@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>網際內容管理系統 - w14</title><link href="./" rel="alternate"></link><link href="./feeds/w14.atom.xml" rel="self"></link><id>./</id><updated>2024-06-14T15:14:00+08:00</updated><entry><title>2024 w14 課程</title><link href="./2024-Spring-w14-blog-tutorial.html" rel="alternate"></link><published>2024-06-14T15:14:00+08:00</published><updated>2024-06-14T09:02:29+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-06-14:./2024-Spring-w14-blog-tutorial.html</id><summary type="html">&lt;p&gt;有關可攜方案系統的批次文件說明&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;有關可攜方案系統的批次文件說明&lt;/p&gt;
+
+
+&lt;h1&gt;Python版本修改啟動批次文件，並利用AI取得各指令的詳細說明：&lt;/h1&gt;
+&lt;p&gt;將引入無製表符號的兩行資料的原始文件，利用Python轉為csv文件格式：&lt;/p&gt;
+&lt;p&gt;處理方式：逐列空白分割，若無資料加入選項卡符號，若有資料則將空白換為選項卡符號，然後印出（也可直接文件）&lt;/p&gt;
+&lt;p&gt;以下方案則可讀取w14點名csv文件，並從期中自評表csv文件中除剃已退選者的資料：&lt;/p&gt;
+&lt;p&gt;處理方式：利用 csv 模組讀取各列數據，以 w14 留下的學員學號為基準，手持讀取期中所需數據時，只需接下來 w14 名單中的學員數據&lt;/p&gt;</content><category term="w14"></category><category term="網誌編寫"></category></entry></feed>
